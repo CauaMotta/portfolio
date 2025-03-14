@@ -1,11 +1,12 @@
-import { GlobalStyle } from './styles'
+import Sidebar from './components/Sidebar'
+import { Container, GlobalStyle } from './styles'
 
 function App() {
   return (
-    <div>
+    <Container>
       <GlobalStyle />
-      <h1>Hello World!</h1>
-    </div>
+      <Sidebar />
+    </Container>
   )
 }
 
