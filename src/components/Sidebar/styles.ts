@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import variables from '../../styles/variables'
 
 export const Container = styled.aside`
-  max-width: 256px;
   width: 100%;
   height: 100vh;
 

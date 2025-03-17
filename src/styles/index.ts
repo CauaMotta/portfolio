@@ -23,5 +23,9 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 256px auto;
+
+  .mainContent {
+    padding: 40px 0;
+  }
 `
