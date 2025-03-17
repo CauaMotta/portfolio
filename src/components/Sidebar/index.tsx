@@ -11,7 +11,7 @@ const Sidebar = () => (
     <div className="info">
       <h1>Cauã Motta</h1>
       <span>@CauaMotta</span>
-      <p>Full-Stack Engineer</p>
+      <p>Engenheiro Full-Stack</p>
     </div>
     <div className="social">
       <h2>

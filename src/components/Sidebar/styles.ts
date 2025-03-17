@@ -41,7 +41,7 @@ export const Container = styled.aside`
     span {
       font-size: 14px;
       font-weight: 300;
-      opacity: 0.75;
+      color: ${variables.fontColorSecondary};
       margin-bottom: 8px;
     }
   }
@@ -57,6 +57,10 @@ export const Container = styled.aside`
     a {
       color: ${variables.primaryColor};
       text-decoration: none;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 `

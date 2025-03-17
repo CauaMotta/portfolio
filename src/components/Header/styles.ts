@@ -21,9 +21,10 @@ export const Container = styled.header`
       font-size: 18px;
       font-weight: bold;
 
-      padding: 6px 8px;
+      padding: 6px 16px;
 
       &:hover {
+        color: ${variables.secondaryColor};
         background-color: ${variables.primaryColor};
         border-radius: 8px;
       }
