@@ -21,11 +21,19 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   max-width: 1024px;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 256px auto;
 
   .mainContent {
-    padding: 40px 0;
+    overflow: scroll;
   }
+`
+
+export const Line = styled.hr`
+  height: 2px;
+  background-color: ${variables.secondaryColor};
+  border: none;
+  margin: 8px 0;
 `

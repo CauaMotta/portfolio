@@ -59,7 +59,8 @@ export const Container = styled.aside`
       text-decoration: none;
 
       &:hover {
-        opacity: 0.8;
+        /* opacity: 0.8; */
+        color: ${variables.primaryColorDark};
       }
     }
   }
