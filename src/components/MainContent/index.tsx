@@ -11,8 +11,17 @@ const MainContent = () => (
       description="Esta seção tem o objetivo de mostrar os meus principais projetos"
     >
       <>
-        <Card />
-        <Card />
+        <Card type="project" />
+        <Card type="project" />
+      </>
+    </Section>
+    <Section
+      title="Certificados"
+      description="Esta seção tem o objetivo de mostrar todos os meus certificados"
+    >
+      <>
+        <Card type="certificate" />
+        <Card type="certificate" />
       </>
     </Section>
   </Container>

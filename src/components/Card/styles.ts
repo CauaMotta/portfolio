@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import variables from '../../styles/variables'
 import { Line } from '../../styles'
 
-export const Container = styled.div`
+import { Props } from '.'
+
+export const Container = styled.div<Props>`
   background-color: ${variables.secondaryColor};
   border-radius: 16px;
 
@@ -15,16 +17,19 @@ export const Container = styled.div`
 
   .content-container {
     display: flex;
+    align-items: center;
     gap: 16px;
 
     .image-container {
       border-radius: 8px;
-      border: 3px solid ${variables.primaryColor};
-      background-color: ${variables.primaryColor};
+      border: ${({ type }: Props) =>
+        type === 'project' ? `2px solid ${variables.primaryColor}` : 'none'};
+      background-color: ${({ type }: Props) =>
+        type === 'project' ? variables.primaryColor : 'transparent'};
       overflow: hidden;
 
-      width: 160px;
-      height: 120px;
+      width: ${({ type }: Props) => (type === 'project' ? '160px' : '64px')};
+      height: ${({ type }: Props) => (type === 'project' ? '120px' : '64px')};
 
       img {
         display: block;
@@ -65,12 +70,15 @@ export const Container = styled.div`
     a {
       font-size: 16px;
       font-weight: bold;
-      color: ${variables.secondaryColor};
+      color: ${({ type }: Props) =>
+        type === 'project' ? variables.secondaryColor : variables.fontColor};
 
-      background-color: ${variables.primaryColor};
+      background-color: ${({ type }: Props) =>
+        type === 'project' ? variables.primaryColor : 'transparent'};
       padding: 6px 16px;
       border-radius: 8px;
-      border: 3px solid ${variables.primaryColor};
+      border: ${({ type }: Props) =>
+        type === 'project' ? `3px solid ${variables.primaryColor}` : 'none'};
 
       cursor: pointer;
     }
@@ -79,8 +87,12 @@ export const Container = styled.div`
       text-decoration: none;
 
       &:hover {
-        background-color: ${variables.primaryColorDark};
-        border-color: ${variables.primaryColorDark};
+        background-color: ${({ type }: Props) =>
+          type === 'project' ? variables.primaryColorDark : 'transparent'};
+        border-color: ${({ type }: Props) =>
+          type === 'project' && variables.primaryColorDark};
+        color: ${({ type }: Props) =>
+          type !== 'project' && variables.fontColorSecondary};
       }
     }
 
