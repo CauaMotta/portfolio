@@ -7,6 +7,10 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+
+    scrollbar-width: thin;
+    scrollbar-color: ${variables.primaryColorDark} ${variables.secondaryColor};
+    scroll-behavior: smooth;
   }
 
   body {
@@ -27,7 +31,7 @@ export const Container = styled.div`
   grid-template-columns: 256px auto;
 
   .mainContent {
-    overflow: scroll;
+    overflow-y: scroll;
   }
 `
 
