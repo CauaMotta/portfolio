@@ -157,4 +157,8 @@ export const Container = styled.section`
     opacity: 0.15;
     transform: rotate(5deg);
   }
+
+  .modalMessage {
+    color: ${variables.fontColorSecondary};
+  }
 `

@@ -11,6 +11,7 @@ Este é meu projeto de portfólio pessoal, desenvolvido em **React** com **Vite*
 - 📩 [EmailJS](https://www.emailjs.com/) - Envio de emails diretamente do frontend
 - ✅ [Yup](https://github.com/jquense/yup) - Validação de formulários de forma simples e eficiente
 - 📝 [Formik](https://formik.org/) - Gerenciamento de formulários no React
+- 🔄 [React Spinners](https://www.davidhu.io/react-spinners/) - Componentes de carregamento estilizados para React
 
 ## 📦 Instalação e Execução
 

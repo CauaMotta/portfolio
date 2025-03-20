@@ -4,9 +4,15 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 import { Container } from './styles'
+import Modal from '../Modal'
+import { PulseLoader } from 'react-spinners'
+import variables from '../../styles/variables'
 
 const Contact = () => {
   const [copy, setCopy] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [modalMessage, setModalMessage] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const copyToClipboard = async () => {
     try {
@@ -41,7 +47,7 @@ const Contact = () => {
         .required('O campo de mensagem é obrigatório')
     }),
     onSubmit: (values) => {
-      console.log(values)
+      setIsLoading(true)
       emailjs
         .send(
           'service_18cgk0i',
@@ -58,10 +64,16 @@ const Contact = () => {
         )
         .then(
           () => {
-            console.log('SUCCESS!')
+            setModalMessage('Seu email foi enviado com sucesso!')
+            setIsModalOpen(true)
+            form.resetForm()
           },
           (error) => {
-            console.log('FAILED...', error.text)
+            console.log(error)
+            setModalMessage(
+              'Ocorreu um erro ao enviar o email. Tente novamente.'
+            )
+            setIsModalOpen(true)
           }
         )
     }
@@ -156,10 +168,30 @@ const Contact = () => {
         </div>
         <div className="submitBtnContainer">
           <button className="submitBtn" type="submit">
-            Enviar <i className="fa-solid fa-paper-plane"></i>
+            {isLoading ? (
+              <PulseLoader
+                color={variables.secondaryColor}
+                size={10}
+                speedMultiplier={0.75}
+              />
+            ) : (
+              <>
+                Enviar <i className="fa-solid fa-paper-plane"></i>
+              </>
+            )}
           </button>
         </div>
       </form>
+      <Modal
+        title="Formulário"
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false)
+          setIsLoading(false)
+        }}
+      >
+        <p className="modalMessage">{modalMessage}</p>
+      </Modal>
       <div className="socialMedia">
         <p>
           <i className="fa-solid fa-hashtag"></i> Redes Sociais
