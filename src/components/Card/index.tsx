@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { Line } from '../../styles'
+import Modal from '../Modal'
+
 import { Container } from './styles'
 
 export type Props = {
@@ -6,30 +9,42 @@ export type Props = {
 }
 
 const Card = ({ type }: Props) => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   if (type === 'project') {
     return (
-      <Container type="project">
-        <div className="content-container">
-          <div className="image-container">
-            <img src="https://placehold.co/160x120" alt="" />
+      <>
+        <Container type="project">
+          <div className="content-container">
+            <div className="image-container">
+              <img src="https://placehold.co/160x120" alt="" />
+            </div>
+            <div className="content">
+              <h3 className="title">Titulo</h3>
+              <Line />
+              <p className="resume">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam
+                impedit repellat laborum nulla inventore voluptatum consectetur
+                assumenda aperiam laudantium molestias quaerat ut.
+              </p>
+            </div>
           </div>
-          <div className="content">
-            <h3 className="title">Titulo</h3>
-            <Line />
-            <p className="resume">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam
-              impedit repellat laborum nulla inventore voluptatum consectetur
-              assumenda aperiam laudantium molestias quaerat ut.
-            </p>
+          <div className="btn-container">
+            <button onClick={() => setIsModalOpen(true)}>Ver detalhes</button>
+            <a href="#" target="_blank">
+              <i className="fa-brands fa-github"></i> Ver no Github
+            </a>
           </div>
-        </div>
-        <div className="btn-container">
-          <button>Ver detalhes</button>
-          <a href="#" target="_blank">
-            <i className="fa-brands fa-github"></i> Ver no Github
-          </a>
-        </div>
-      </Container>
+        </Container>
+
+        <Modal
+          onClose={() => setIsModalOpen(false)}
+          isOpen={isModalOpen}
+          title="Detalhes do projeto"
+        >
+          <p>conteudo</p>
+        </Modal>
+      </>
     )
   }
   return (
