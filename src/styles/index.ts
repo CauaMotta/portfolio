@@ -8,6 +8,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
 
+    font-family: ${variables.fontFamily};
+
     scrollbar-width: thin;
     scrollbar-color: ${variables.primaryColorDark} ${variables.secondaryColor};
     scroll-behavior: smooth;
@@ -15,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: ${variables.backgroundColor};
-    font-family: ${variables.fontFamily};
     color: ${variables.fontColor};
     font-size: 16px;
     font-weight: 400;

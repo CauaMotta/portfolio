@@ -98,7 +98,6 @@ export const Container = styled.div<Props>`
 
     button {
       color: ${variables.primaryColor};
-      font-family: ${variables.fontFamily};
 
       background-color: transparent;
 

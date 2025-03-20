@@ -1,5 +1,6 @@
 import AboutMe from '../AboutMe'
 import Card from '../Card'
+import Contact from '../Contact'
 import Section from '../Section'
 import { Container } from './styles'
 
@@ -24,6 +25,7 @@ const MainContent = () => (
         <Card type="certificate" />
       </>
     </Section>
+    <Contact />
   </Container>
 )
 
