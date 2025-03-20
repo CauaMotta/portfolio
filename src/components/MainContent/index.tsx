@@ -1,7 +1,9 @@
 import AboutMe from '../AboutMe'
 import Card from '../Card'
 import Contact from '../Contact'
+import Footer from '../Footer'
 import Section from '../Section'
+
 import { Container } from './styles'
 
 const MainContent = () => (
@@ -26,6 +28,7 @@ const MainContent = () => (
       </>
     </Section>
     <Contact />
+    <Footer />
   </Container>
 )
 
