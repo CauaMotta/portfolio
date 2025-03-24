@@ -1,7 +1,7 @@
 import { Container } from './styles'
 
 const AboutMe = () => (
-  <Container>
+  <Container id="about">
     <h2 className="SectionTitle">
       Bem-vindo ao meu <br /> <span>Portfólio</span>
     </h2>

@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 
     scrollbar-width: thin;
     scrollbar-color: ${variables.primaryColorDark} ${variables.secondaryColor};
-    scroll-behavior: smooth;
+    scroll-margin-top: 132px;
   }
 
   body {

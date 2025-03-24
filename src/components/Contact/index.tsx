@@ -88,7 +88,7 @@ const Contact = () => {
   }
 
   return (
-    <Container>
+    <Container id="contact">
       <h2 className="title">
         Entre em <br /> <span>Contato!</span>
       </h2>

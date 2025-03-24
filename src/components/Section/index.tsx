@@ -4,13 +4,14 @@ import { Line } from '../../styles'
 import { Container } from './styles'
 
 type Props = {
+  id: string
   title: string
   description: string
   children: JSX.Element
 }
 
-const Section = ({ title, description, children }: Props) => (
-  <Container>
+const Section = ({ id, title, description, children }: Props) => (
+  <Container id={id}>
     <div className="header-container">
       <h2 className="title">{title}</h2>
       <Line />

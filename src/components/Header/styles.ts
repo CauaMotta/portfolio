@@ -4,10 +4,6 @@ import variables from '../../styles/variables'
 export const Container = styled.header`
   width: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
   position: sticky;
   top: 0;
   z-index: 1;
@@ -15,26 +11,66 @@ export const Container = styled.header`
   background-color: ${variables.backgroundColor};
   padding-top: 40px;
 
-  .navList {
+  .navContainer {
+    height: 60px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 16px;
 
-    height: 60px;
+    nav {
+      position: relative;
 
-    a {
-      text-decoration: none;
-      color: ${variables.fontColor};
-      font-size: 18px;
-      font-weight: bold;
+      button {
+        background-color: transparent;
+        border: none;
 
-      padding: 6px 16px;
+        color: ${variables.fontColor};
+        font-size: 18px;
+        font-weight: bold;
 
-      &:hover {
-        color: ${variables.secondaryColor};
+        height: 32px;
+
+        cursor: pointer;
+
+        &:nth-child(1) {
+          width: 80px;
+        }
+        &:nth-child(2) {
+          width: 100px;
+        }
+        &:nth-child(3) {
+          width: 132px;
+        }
+        &:nth-child(4) {
+          width: 100px;
+        }
+      }
+
+      .line {
+        position: absolute;
+        bottom: 0;
+        height: 3px;
         background-color: ${variables.primaryColor};
         border-radius: 8px;
+        transition: all 0.5s;
+      }
+
+      .about {
+        width: 80px;
+        left: 0;
+      }
+      .projects {
+        width: 100px;
+        left: 80px;
+      }
+      .certificates {
+        width: 132px;
+        left: 180px;
+      }
+      .contact {
+        width: 100px;
+        left: 312px;
       }
     }
   }

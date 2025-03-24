@@ -10,6 +10,7 @@ const MainContent = () => (
   <Container>
     <AboutMe />
     <Section
+      id="projects"
       title="Meus projetos"
       description="Esta seção tem o objetivo de mostrar os meus principais projetos"
     >
@@ -19,6 +20,7 @@ const MainContent = () => (
       </>
     </Section>
     <Section
+      id="certificates"
       title="Certificados"
       description="Esta seção tem o objetivo de mostrar todos os meus certificados"
     >

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import variables from '../../styles/variables'
 
 export const Container = styled.section`
-  margin-top: 60px;
+  margin-top: 40px;
   padding: 40px 32px;
   background-color: ${variables.secondaryColor};
   border-radius: 16px;
