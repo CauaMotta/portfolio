@@ -32,17 +32,19 @@ export const Container = styled.section`
   .contact-me {
     margin-top: 24px;
 
-    a {
+    button {
       display: inline-block;
       padding: 6px 16px;
 
-      text-decoration: none;
       color: ${variables.primaryColor};
       font-weight: 600;
+      font-size: 16px;
 
       background-color: transparent;
       border: 3px solid ${variables.primaryColor};
       border-radius: 8px;
+
+      cursor: pointer;
 
       &:hover {
         background-color: ${variables.primaryColor};

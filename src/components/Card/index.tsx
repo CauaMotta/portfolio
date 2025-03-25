@@ -1,37 +1,36 @@
 import { useState } from 'react'
-import { Line } from '../../styles'
+
 import Modal from '../Modal'
 
-import { Container } from './styles'
+import { Line } from '../../styles'
+import { Container, Grid } from './styles'
 
-export type Props = {
+type Props = {
   type: 'project' | 'certificate'
+  content: Project | Certificate
 }
 
-const Card = ({ type }: Props) => {
+const Card = ({ type, content }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   if (type === 'project') {
+    const project = content as Project
     return (
       <>
         <Container type="project">
           <div className="content-container">
             <div className="image-container">
-              <img src="https://placehold.co/160x120" alt="" />
+              <img src={project.image} alt={project.title} />
             </div>
             <div className="content">
-              <h3 className="title">Titulo</h3>
+              <h3 className="title">{project.title}</h3>
               <Line />
-              <p className="resume">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam
-                impedit repellat laborum nulla inventore voluptatum consectetur
-                assumenda aperiam laudantium molestias quaerat ut.
-              </p>
+              <p className="resume">{project.resume}</p>
             </div>
           </div>
           <div className="btn-container">
             <button onClick={() => setIsModalOpen(true)}>Ver detalhes</button>
-            <a href="#" target="_blank">
+            <a href={project.linkRepo} target="_blank">
               <i className="fa-brands fa-github"></i> Ver no Github
             </a>
           </div>
@@ -40,26 +39,64 @@ const Card = ({ type }: Props) => {
         <Modal
           onClose={() => setIsModalOpen(false)}
           isOpen={isModalOpen}
-          title="Detalhes do projeto"
+          title={project.title}
         >
-          <p>conteudo</p>
+          <Grid>
+            <div className="grid-item-1">
+              <div className="image-container">
+                <img src={project.image} alt={project.title} />
+              </div>
+            </div>
+            <div className="grid-item-2">
+              <p>{project.resume}</p>
+
+              <div className="section">
+                <h4 className="subtitle">&#x1F6E0;&#xFE0F; Tecnologias</h4>
+                <ul>
+                  {project.tecnologies.map((technology) => (
+                    <li key={technology}>{technology}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="section">
+                <h4 className="subtitle">&#128279; Links</h4>
+                <div className="links-container">
+                  {project.published && (
+                    <a
+                      className="links"
+                      href={project.linkDeploy}
+                      target="_blank"
+                    >
+                      <i className="fa-solid fa-globe"></i> Ver projeto
+                      publicado
+                    </a>
+                  )}
+                  <a className="links" href={project.linkRepo} target="_blank">
+                    <i className="fa-brands fa-github"></i> Ver no Github
+                  </a>
+                </div>
+              </div>
+            </div>
+          </Grid>
         </Modal>
       </>
     )
   }
+
+  const certificate = content as Certificate
   return (
     <Container type="certificate">
       <div className="content-container">
         <div className="image-container">
-          <img src="https://placehold.co/64x64" alt="" />
+          <img src={certificate.image} alt={certificate.title} />
         </div>
         <div className="content">
-          <h3 className="title">Titulo</h3>
+          <h3 className="title">{certificate.title}</h3>
           <Line />
-          <p className="resume">03/2025</p>
+          <p className="resume">{certificate.date}</p>
         </div>
         <div className="btn-container">
-          <a href="#" target="_blank">
+          <a href={certificate.link} target="_blank">
             Ver certificado{' '}
             <i className="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
@@ -68,5 +105,4 @@ const Card = ({ type }: Props) => {
     </Container>
   )
 }
-
 export default Card

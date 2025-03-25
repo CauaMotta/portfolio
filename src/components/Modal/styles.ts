@@ -18,6 +18,8 @@ export const ModalContainer = styled.div`
 `
 
 export const ModalCard = styled.div`
+  max-width: 992px;
+
   min-width: 320px;
   min-height: 120px;
 

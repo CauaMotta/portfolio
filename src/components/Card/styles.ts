@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import variables from '../../styles/variables'
 import { Line } from '../../styles'
 
-import { Props } from '.'
+type Props = {
+  type: 'project' | 'certificate'
+}
 
 export const Container = styled.div<Props>`
   background-color: ${variables.secondaryColor};
@@ -110,5 +112,94 @@ export const Container = styled.div<Props>`
 
   &:hover {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+`
+
+export const Grid = styled.div`
+  width: 100%;
+
+  margin-top: 24px;
+
+  display: grid;
+  grid-template-columns: 256px auto;
+  gap: 24px;
+
+  .grid-item-1 {
+    .image-container {
+      background-color: ${variables.primaryColor};
+      border: 3px solid ${variables.primaryColor};
+      border-radius: 16px;
+
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .grid-item-2 {
+    color: ${variables.fontColorSecondary};
+
+    p {
+      line-height: 22px;
+    }
+
+    .section {
+      margin-top: 16px;
+
+      .subtitle {
+        font-size: 18px;
+        color: ${variables.fontColor};
+        margin-bottom: 8px;
+      }
+
+      ul {
+        padding-left: 16px;
+        display: grid;
+        grid-auto-rows: 24px;
+        grid-template-columns: 1fr;
+
+        &:has(li:nth-child(6)) {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: repeat(5, 24px);
+          grid-auto-flow: column;
+        }
+
+        li {
+          height: 24px;
+          line-height: 22px;
+        }
+      }
+
+      .links-container {
+        padding-left: 16px;
+
+        display: flex;
+        gap: 8px;
+
+        .links {
+          display: inline-block;
+
+          background-color: ${variables.primaryColor};
+          border: 3px solid ${variables.primaryColor};
+          border-radius: 8px;
+
+          text-decoration: none;
+          color: ${variables.secondaryColor};
+          font-weight: bold;
+
+          padding: 6px 16px;
+
+          &:hover {
+            background-color: ${variables.primaryColorDark};
+            border-color: ${variables.primaryColorDark};
+          }
+        }
+      }
+    }
   }
 `

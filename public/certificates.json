@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "image": "https://placehold.co/64x64",
+    "title": "Certificate 1",
+    "date": "03/2025",
+    "link": "https://cursos.alura.com.br/user/oCauaMotta"
+  },
+  {
+    "id": 2,
+    "image": "https://placehold.co/64x64",
+    "title": "Certificate 2",
+    "date": "03/2025",
+    "link": "https://cursos.alura.com.br/user/oCauaMotta"
+  }
+]

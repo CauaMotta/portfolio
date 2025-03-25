@@ -1,3 +1,5 @@
+import { scrollToSection } from '../../utils'
+
 import { Container } from './styles'
 
 const AboutMe = () => (
@@ -14,7 +16,7 @@ const AboutMe = () => (
         práticas e performance.
       </p>
       <p className="text m-top">
-        <span>&#x1F6E0;</span> Tenho experiência no desenvolvimento de
+        <span>&#x1F6E0;&#xFE0F;</span> Tenho experiência no desenvolvimento de
         aplicações <b>Front-end</b> e <b>Back-end</b>, adoro explorar novas
         tecnologias para melhorar meus projetos. Algumas das principais
         tecnologias que possuo experiência são:{' '}
@@ -26,7 +28,9 @@ const AboutMe = () => (
         entre em contato!
       </p>
       <div className="contact-me">
-        <a href="#">Ir para contatos!</a>
+        <button onClick={() => scrollToSection('contact')}>
+          Ir para contatos!
+        </button>
       </div>
       <div className="hashtag">
         <i className="fa-regular fa-hashtag"></i>
