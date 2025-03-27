@@ -13,9 +13,9 @@ type Props = {
 const Section = ({ id, title, description, children }: Props) => (
   <Container id={id}>
     <div className="header-container">
-      <h2 className="title">{title}</h2>
+      <h2 className="title pi-16">{title}</h2>
       <Line />
-      <p className="description">{description}</p>
+      <p className="text pi-32">{description}</p>
     </div>
     {children}
   </Container>

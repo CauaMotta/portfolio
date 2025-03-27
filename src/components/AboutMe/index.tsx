@@ -1,11 +1,12 @@
 import { scrollToSection } from '../../utils'
 
+import { Button } from '../../styles'
 import { Container } from './styles'
 
 const AboutMe = () => (
   <Container id="about">
-    <h2 className="SectionTitle">
-      Bem-vindo ao meu <br /> <span>Portfólio</span>
+    <h2 className="title">
+      Bem-vindo ao meu <br /> <span className="emphasis">Portfólio</span>
     </h2>
     <div>
       <p className="text">
@@ -27,10 +28,10 @@ const AboutMe = () => (
         oportunidades. Se quiser trocar uma ideia ou colaborar em um projeto,
         entre em contato!
       </p>
-      <div className="contact-me">
-        <button onClick={() => scrollToSection('contact')}>
+      <div className="m-top">
+        <Button onClick={() => scrollToSection('contact')}>
           Ir para contatos!
-        </button>
+        </Button>
       </div>
       <div className="hashtag">
         <i className="fa-regular fa-hashtag"></i>

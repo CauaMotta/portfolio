@@ -1,4 +1,3 @@
-import Header from './components/Header'
 import MainContent from './components/MainContent'
 import Sidebar from './components/Sidebar'
 
@@ -9,10 +8,7 @@ function App() {
     <Container>
       <GlobalStyle />
       <Sidebar />
-      <div className="mainContent">
-        <Header />
-        <MainContent />
-      </div>
+      <MainContent />
     </Container>
   )
 }

@@ -9,7 +9,7 @@ export const Container = styled.aside`
   flex-direction: column;
   align-items: center;
 
-  padding: 48px 8px;
+  padding: 48px 16px;
 
   .avatar {
     img {
@@ -39,9 +39,7 @@ export const Container = styled.aside`
     }
 
     span {
-      font-size: 14px;
       font-weight: 300;
-      color: ${variables.fontColorSecondary};
       margin-bottom: 8px;
     }
   }
@@ -53,15 +51,6 @@ export const Container = styled.aside`
     h2 {
       font-size: 16px;
       margin-bottom: 8px;
-    }
-    a {
-      color: ${variables.primaryColor};
-      text-decoration: none;
-
-      &:hover {
-        /* opacity: 0.8; */
-        color: ${variables.primaryColorDark};
-      }
     }
   }
 `

@@ -5,6 +5,7 @@ export const Container = styled.section`
   position: relative;
 
   padding: 40px 32px;
+  margin-top: 40px;
 
   background-color: ${variables.secondaryColor};
   border-radius: 16px;
@@ -13,44 +14,9 @@ export const Container = styled.section`
     margin-top: 24px;
   }
 
-  .SectionTitle {
-    font-size: 24px;
+  .title {
     font-weight: 400;
     margin-bottom: 24px;
-
-    span {
-      font-size: 32px;
-      font-weight: bold;
-    }
-  }
-
-  .text {
-    line-height: 22px;
-    color: ${variables.fontColorSecondary};
-  }
-
-  .contact-me {
-    margin-top: 24px;
-
-    button {
-      display: inline-block;
-      padding: 6px 16px;
-
-      color: ${variables.primaryColor};
-      font-weight: 600;
-      font-size: 16px;
-
-      background-color: transparent;
-      border: 3px solid ${variables.primaryColor};
-      border-radius: 8px;
-
-      cursor: pointer;
-
-      &:hover {
-        background-color: ${variables.primaryColor};
-        color: ${variables.secondaryColor};
-      }
-    }
   }
 
   .hashtag {

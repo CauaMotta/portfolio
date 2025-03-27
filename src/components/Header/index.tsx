@@ -26,7 +26,7 @@ const Header = () => {
       setActiveSection(currentSection)
     }
 
-    const mainContent = document.querySelector('.mainContent')
+    const mainContent = document.getElementById('main-content')
     if (mainContent) {
       mainContent.addEventListener('scroll', handleScroll)
     }

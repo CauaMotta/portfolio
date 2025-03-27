@@ -36,13 +36,6 @@ export const ModalCard = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    padding-inline: 8px;
-
-    h3 {
-      font-size: 18px;
-      font-weight: 500;
-    }
-
     .close {
       background: transparent;
       border: none;
@@ -56,10 +49,6 @@ export const ModalCard = styled.div`
         color: ${variables.fontColor};
       }
     }
-  }
-
-  .content {
-    padding: 0 8px;
   }
 
   ${Line} {

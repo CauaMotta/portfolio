@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
-  padding: 32px 16px;
+export const Container = styled.div`
+  padding: 0 16px;
+
+  overflow-y: scroll;
 `

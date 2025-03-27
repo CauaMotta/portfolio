@@ -44,19 +44,6 @@ export const Container = styled.div<Props>`
     .content {
       flex: 1;
 
-      .title {
-        font-size: 18px;
-        font-weight: 500;
-        padding-inline: 8px;
-      }
-
-      .resume {
-        font-size: 14px;
-        line-height: 22px;
-        color: ${variables.fontColorSecondary};
-        padding-inline: 8px;
-      }
-
       ${Line} {
         background-color: ${variables.backgroundColor};
       }
@@ -68,44 +55,15 @@ export const Container = styled.div<Props>`
     justify-content: flex-end;
     gap: 16px;
 
-    button,
-    a {
-      font-size: 16px;
-      font-weight: bold;
-      color: ${({ type }: Props) =>
-        type === 'project' ? variables.secondaryColor : variables.fontColor};
-
-      background-color: ${({ type }: Props) =>
-        type === 'project' ? variables.primaryColor : 'transparent'};
+    .certificate-link {
       padding: 6px 16px;
-      border-radius: 8px;
-      border: ${({ type }: Props) =>
-        type === 'project' ? `3px solid ${variables.primaryColor}` : 'none'};
 
-      cursor: pointer;
-    }
-
-    a {
+      color: ${variables.fontColor};
+      font-weight: bold;
       text-decoration: none;
 
       &:hover {
-        background-color: ${({ type }: Props) =>
-          type === 'project' ? variables.primaryColorDark : 'transparent'};
-        border-color: ${({ type }: Props) =>
-          type === 'project' && variables.primaryColorDark};
-        color: ${({ type }: Props) =>
-          type !== 'project' && variables.fontColorSecondary};
-      }
-    }
-
-    button {
-      color: ${variables.primaryColor};
-
-      background-color: transparent;
-
-      &:hover {
-        background-color: ${variables.primaryColor};
-        color: ${variables.secondaryColor};
+        color: ${variables.fontColorSecondary};
       }
     }
   }
@@ -142,18 +100,10 @@ export const Grid = styled.div`
   }
 
   .grid-item-2 {
-    color: ${variables.fontColorSecondary};
-
-    p {
-      line-height: 22px;
-    }
-
     .section {
       margin-top: 16px;
 
-      .subtitle {
-        font-size: 18px;
-        color: ${variables.fontColor};
+      .title--small {
         margin-bottom: 8px;
       }
 
@@ -171,7 +121,6 @@ export const Grid = styled.div`
 
         li {
           height: 24px;
-          line-height: 22px;
         }
       }
 
@@ -180,25 +129,6 @@ export const Grid = styled.div`
 
         display: flex;
         gap: 8px;
-
-        .links {
-          display: inline-block;
-
-          background-color: ${variables.primaryColor};
-          border: 3px solid ${variables.primaryColor};
-          border-radius: 8px;
-
-          text-decoration: none;
-          color: ${variables.secondaryColor};
-          font-weight: bold;
-
-          padding: 6px 16px;
-
-          &:hover {
-            background-color: ${variables.primaryColorDark};
-            border-color: ${variables.primaryColorDark};
-          }
-        }
       }
     }
   }

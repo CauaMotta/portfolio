@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 
+import Header from '../Header'
 import AboutMe from '../AboutMe'
 import Card from '../Card'
 import Contact from '../Contact'
-import Footer from '../Footer'
 import Section from '../Section'
+import Footer from '../Footer'
 
 import { Container } from './styles'
 
@@ -27,35 +28,38 @@ const MainContent = () => {
   }, [])
 
   return (
-    <Container>
-      <AboutMe />
-      <Section
-        id="projects"
-        title="Meus projetos"
-        description="Esta seção tem o objetivo de mostrar os meus principais projetos"
-      >
-        <>
-          {projects.map((project) => (
-            <Card key={project.id} content={project} type="project" />
-          ))}
-        </>
-      </Section>
-      <Section
-        id="certificates"
-        title="Certificados"
-        description="Esta seção tem o objetivo de mostrar todos os meus certificados"
-      >
-        <>
-          {certificates.map((certificate) => (
-            <Card
-              key={certificate.id}
-              content={certificate}
-              type="certificate"
-            />
-          ))}
-        </>
-      </Section>
-      <Contact />
+    <Container id="main-content">
+      <Header />
+      <main>
+        <AboutMe />
+        <Section
+          id="projects"
+          title="Meus projetos"
+          description="Esta seção tem o objetivo de mostrar os meus principais projetos"
+        >
+          <>
+            {projects.map((project) => (
+              <Card key={project.id} content={project} type="project" />
+            ))}
+          </>
+        </Section>
+        <Section
+          id="certificates"
+          title="Certificados"
+          description="Esta seção tem o objetivo de mostrar todos os meus certificados"
+        >
+          <>
+            {certificates.map((certificate) => (
+              <Card
+                key={certificate.id}
+                content={certificate}
+                type="certificate"
+              />
+            ))}
+          </>
+        </Section>
+        <Contact />
+      </main>
       <Footer />
     </Container>
   )

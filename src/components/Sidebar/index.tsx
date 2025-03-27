@@ -9,8 +9,8 @@ const Sidebar = () => (
       />
     </div>
     <div className="info">
-      <h1>Cauã Motta</h1>
-      <span>@CauaMotta</span>
+      <h1 className="title">Cauã Motta</h1>
+      <span className="text--small">@CauaMotta</span>
       <p>Engenheiro Full-Stack</p>
     </div>
     <div className="social">
@@ -19,17 +19,29 @@ const Sidebar = () => (
       </h2>
       <ul>
         <li>
-          <a href="https://github.com/CauaMotta" target="_blank">
+          <a
+            className="social-link"
+            href="https://github.com/CauaMotta"
+            target="_blank"
+          >
             <i className="fa-brands fa-github"></i> GitHub
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/ocauamotta/" target="_blank">
+          <a
+            className="social-link"
+            href="https://www.linkedin.com/in/ocauamotta/"
+            target="_blank"
+          >
             <i className="fa-brands fa-linkedin"></i> LinkedIn
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/ocauamotta/" target="_blank">
+          <a
+            className="social-link"
+            href="https://www.instagram.com/ocauamotta/"
+            target="_blank"
+          >
             <i className="fa-brands fa-instagram"></i> Instagram
           </a>
         </li>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Modal from '../Modal'
 
-import { Line } from '../../styles'
+import { Button, Line, Link } from '../../styles'
 import { Container, Grid } from './styles'
 
 type Props = {
@@ -23,16 +23,16 @@ const Card = ({ type, content }: Props) => {
               <img src={project.image} alt={project.title} />
             </div>
             <div className="content">
-              <h3 className="title">{project.title}</h3>
+              <h3 className="title--small pi-8">{project.title}</h3>
               <Line />
-              <p className="resume">{project.resume}</p>
+              <p className="text--small pi-8">{project.resume}</p>
             </div>
           </div>
           <div className="btn-container">
-            <button onClick={() => setIsModalOpen(true)}>Ver detalhes</button>
-            <a href={project.linkRepo} target="_blank">
+            <Button onClick={() => setIsModalOpen(true)}>Ver detalhes</Button>
+            <Link href={project.linkRepo} target="_blank">
               <i className="fa-brands fa-github"></i> Ver no Github
-            </a>
+            </Link>
           </div>
         </Container>
 
@@ -48,32 +48,30 @@ const Card = ({ type, content }: Props) => {
               </div>
             </div>
             <div className="grid-item-2">
-              <p>{project.resume}</p>
+              <p className="text">{project.resume}</p>
 
               <div className="section">
-                <h4 className="subtitle">&#x1F6E0;&#xFE0F; Tecnologias</h4>
+                <h4 className="title--small">&#x1F6E0;&#xFE0F; Tecnologias</h4>
                 <ul>
                   {project.tecnologies.map((technology) => (
-                    <li key={technology}>{technology}</li>
+                    <li className="text" key={technology}>
+                      {technology}
+                    </li>
                   ))}
                 </ul>
               </div>
               <div className="section">
-                <h4 className="subtitle">&#128279; Links</h4>
+                <h4 className="title--small">&#128279; Links</h4>
                 <div className="links-container">
                   {project.published && (
-                    <a
-                      className="links"
-                      href={project.linkDeploy}
-                      target="_blank"
-                    >
+                    <Link href={project.linkDeploy} target="_blank">
                       <i className="fa-solid fa-globe"></i> Ver projeto
                       publicado
-                    </a>
+                    </Link>
                   )}
-                  <a className="links" href={project.linkRepo} target="_blank">
+                  <Link href={project.linkRepo} target="_blank">
                     <i className="fa-brands fa-github"></i> Ver no Github
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -91,12 +89,16 @@ const Card = ({ type, content }: Props) => {
           <img src={certificate.image} alt={certificate.title} />
         </div>
         <div className="content">
-          <h3 className="title">{certificate.title}</h3>
+          <h3 className="title--small pi-8">{certificate.title}</h3>
           <Line />
-          <p className="resume">{certificate.date}</p>
+          <p className="text--small pi-8">{certificate.date}</p>
         </div>
         <div className="btn-container">
-          <a href={certificate.link} target="_blank">
+          <a
+            className="certificate-link"
+            href={certificate.link}
+            target="_blank"
+          >
             Ver certificado{' '}
             <i className="fa-solid fa-arrow-up-right-from-square"></i>
           </a>

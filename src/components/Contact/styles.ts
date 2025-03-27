@@ -10,20 +10,12 @@ export const Container = styled.section`
   position: relative;
 
   .title {
-    font-size: 24px;
     font-weight: 400;
     margin-bottom: 24px;
-
-    span {
-      font-size: 32px;
-      font-weight: bold;
-    }
   }
 
   .text {
-    line-height: 22px;
     margin-bottom: 4px;
-    color: ${variables.fontColorSecondary};
   }
 
   .emailBtn {
@@ -128,23 +120,9 @@ export const Container = styled.section`
   .socialMedia {
     margin-top: 24px;
 
-    p {
-      font-size: 18px;
-      font-weight: bold;
-    }
-
     ul {
       margin-top: 16px;
       margin-left: 24px;
-    }
-
-    a {
-      text-decoration: none;
-      color: ${variables.primaryColor};
-
-      &:hover {
-        color: ${variables.primaryColorDark};
-      }
     }
   }
 
@@ -156,9 +134,5 @@ export const Container = styled.section`
     font-size: 64px;
     opacity: 0.15;
     transform: rotate(5deg);
-  }
-
-  .modalMessage {
-    color: ${variables.fontColorSecondary};
   }
 `

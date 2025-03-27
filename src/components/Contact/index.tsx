@@ -2,10 +2,11 @@ import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { PulseLoader } from 'react-spinners'
+
+import Modal from '../Modal'
 
 import { Container } from './styles'
-import Modal from '../Modal'
-import { PulseLoader } from 'react-spinners'
 import variables from '../../styles/variables'
 
 const Contact = () => {
@@ -90,7 +91,7 @@ const Contact = () => {
   return (
     <Container id="contact">
       <h2 className="title">
-        Entre em <br /> <span>Contato!</span>
+        Entre em <br /> <span className="emphasis">Contato!</span>
       </h2>
       <div>
         <p className="text">Email para contato:</p>
@@ -190,25 +191,37 @@ const Contact = () => {
           setIsLoading(false)
         }}
       >
-        <p className="modalMessage">{modalMessage}</p>
+        <p className="text">{modalMessage}</p>
       </Modal>
       <div className="socialMedia">
-        <p>
+        <h3 className="title--small">
           <i className="fa-solid fa-hashtag"></i> Redes Sociais
-        </p>
+        </h3>
         <ul>
           <li>
-            <a href="https://github.com/CauaMotta" target="_blank">
+            <a
+              className="social-link"
+              href="https://github.com/CauaMotta"
+              target="_blank"
+            >
               <i className="fa-brands fa-github"></i> GitHub
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/ocauamotta/" target="_blank">
+            <a
+              className="social-link"
+              href="https://www.linkedin.com/in/ocauamotta/"
+              target="_blank"
+            >
               <i className="fa-brands fa-linkedin"></i> LinkedIn
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/ocauamotta/" target="_blank">
+            <a
+              className="social-link"
+              href="https://www.instagram.com/ocauamotta/"
+              target="_blank"
+            >
               <i className="fa-brands fa-instagram"></i> Instagram
             </a>
           </li>
