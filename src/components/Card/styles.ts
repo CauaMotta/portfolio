@@ -38,11 +38,16 @@ export const Container = styled.div<Props>`
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top;
       }
     }
 
     .content {
       flex: 1;
+
+      .resume {
+        height: 66px;
+      }
 
       ${Line} {
         background-color: ${variables.backgroundColor};
@@ -84,6 +89,9 @@ export const Grid = styled.div`
 
   .grid-item-1 {
     .image-container {
+      width: 256px;
+      height: 192px;
+
       background-color: ${variables.primaryColor};
       border: 3px solid ${variables.primaryColor};
       border-radius: 16px;
@@ -95,6 +103,7 @@ export const Grid = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top;
       }
     }
   }

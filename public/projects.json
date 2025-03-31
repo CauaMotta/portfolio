@@ -1,30 +1,156 @@
 [
   {
     "id": 1,
-    "image": "https://placehold.co/160x120",
-    "title": "Project 1",
-    "resume": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam impedit repellat laborum nulla inventore voluptatum consectetur assumenda aperiam laudantium molestias quaerat ut.",
-    "linkRepo": "https://github.com/CauaMotta",
-    "published": true,
-    "linkDeploy": "https://github.com/CauaMotta",
-    "tecnologies": ["react", "typescript", "nodejs", "styled-components"]
+    "image": "/assets/my-portfolio.png",
+    "title": "Meu Portfólio",
+    "resume": "Portfólio autoral em React, do design ao código. Moderno, funcional e com personalidade — minha vitrine criativa para o mundo dev. Desenvolvido com Vite e Styled Components, exibindo projetos, habilidades e experiências.",
+    "linkRepo": "https://github.com/CauaMotta/portfolio",
+    "published": false,
+    "tecnologies": [
+      "Vite",
+      "TypeScript",
+      "React",
+      "Styled Components",
+      "Font Awesome",
+      "EmailJs",
+      "Yup",
+      "Formik",
+      "React Spinners"
+    ]
   },
   {
     "id": 2,
-    "image": "https://placehold.co/160x120",
-    "title": "Project 2",
-    "resume": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nam impedit repellat laborum nulla inventore voluptatum consectetur assumenda aperiam laudantium molestias quaerat ut.",
-    "linkRepo": "https://github.com/CauaMotta",
+    "image": "/assets/ebac-efood.png",
+    "title": "Ebac Efood",
+    "resume": "Plataforma de delivery desenvolvida em React para o curso EBAC. Implementação fiel do Figma com integração a API, gerenciamento de estado (Redux), formulários validados com Formik/Yup e navegação via React Router Dom.",
+    "linkRepo": "https://github.com/CauaMotta/efood_project",
     "published": false,
     "tecnologies": [
-      "react",
-      "typescript",
-      "nodejs",
-      "styled-components",
-      "teste",
-      "teste",
-      "teste",
-      "teste"
+      "Vite",
+      "TypeScript",
+      "React",
+      "Styled Components",
+      "Redux",
+      "Formik",
+      "Yup",
+      "React Router Dom",
+      "React Input Mask",
+      "React Spinners"
     ]
+  },
+  {
+    "id": 3,
+    "image": "/assets/contact-list-v2.png",
+    "title": "Agenda de Contatos V2",
+    "resume": "Projeto EBAC: Agenda de contatos em React com design autoral. Temas light/dark (Styled Components), gerenciamento de estado via Redux e navegação com React Router Dom.",
+    "linkRepo": "https://github.com/CauaMotta/contact_list_v2",
+    "published": false,
+    "tecnologies": [
+      "Vite",
+      "TypeScript",
+      "React",
+      "Styled Components",
+      "Redux",
+      "React Router Dom",
+      "React Input Mask"
+    ]
+  },
+  {
+    "id": 4,
+    "image": "/assets/iphone-calculator.png",
+    "title": "Calculadora do iphone",
+    "resume": "Calculadora estilo iPhone desenvolvida em Vue.js (exercício EBAC). Praticando comunicação entre componentes e reutilizando design de código aberto. Foco na arquitetura Vue e fluxo de dados.",
+    "linkRepo": "https://github.com/CauaMotta/iphone_calculator",
+    "published": false,
+    "tecnologies": ["Vite", "JavaScript", "VueJS"]
+  },
+  {
+    "id": 5,
+    "image": "/assets/landing-page.png",
+    "title": "DeadPool e Wolverine",
+    "resume": "Landing Page para 'Deadpool & Wolverine' desenvolvida com HTML e Sass. Automatização de processos (minificação de código, otimização de imagens) utilizando Gulp. Projeto EBAC para consolidar técnicas profissionais de front-end.",
+    "linkRepo": "https://github.com/CauaMotta/landingpage_deadpool_e_wolverine",
+    "published": false,
+    "tecnologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Sass",
+      "Gulp",
+      "JQuery",
+      "Font Awesome"
+    ]
+  },
+  {
+    "id": 6,
+    "image": "/assets/email-html.png",
+    "title": "Email com HTML",
+    "resume": "Template de e-mail com HTML (projeto EBAC). Desenvolvido com CSS inline seguindo boas práticas de compatibilidade entre clients de e-mail. Design simplificado e adaptável.",
+    "linkRepo": "https://github.com/CauaMotta/email_com_html",
+    "published": false,
+    "tecnologies": ["HTML", "CSS"]
+  },
+  {
+    "id": 7,
+    "image": "/assets/sorteador.png",
+    "title": "Sorteador de números",
+    "resume": "Sorteador numérico desenvolvido com Less e Grunt (projeto EBAC). Gera valores aleatórios conforme limite definido, praticando pré-processamento CSS e automação de tasks.",
+    "linkRepo": "https://github.com/CauaMotta/sorteador",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "JavaScript", "Less", "Grunt"]
+  },
+  {
+    "id": 8,
+    "image": "/assets/happy-food.png",
+    "title": "Happy Food",
+    "resume": "Landing Page utilizando HTML, CSS, Bootstrap e jQuery. Implementação de máscaras ao formulário, componentes responsivos e customização do framework, demonstrando domínio dos fundamentos front-end.",
+    "linkRepo": "https://github.com/CauaMotta/happy_food",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "JQuery", "Bootstrap", "Font Awesome"]
+  },
+  {
+    "id": 9,
+    "image": "/assets/virtual-library.png",
+    "title": "Biblioteca Virtual",
+    "resume": "Biblioteca virtual desenvolvida com Bootstrap (projeto EBAC). Design e código autorais, utilizando componentes do framework como carrossel, cards e navbar para criar uma interface funcional.",
+    "linkRepo": "https://github.com/CauaMotta/virtual_library",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "Bootstrap", "Font Awesome"]
+  },
+  {
+    "id": 10,
+    "image": "/assets/powerdrive.png",
+    "title": "Power Drive",
+    "resume": "Landing Page com tema do filme Carros (projeto EBAC). Projeto desenvolvido para exercitar o domínio de media queries, flexbox e unidades relativas para adaptação perfeita em todos os dispositivos.",
+    "linkRepo": "https://github.com/CauaMotta/landingpage_powerdrive",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "JQuery", "Font Awesome"]
+  },
+  {
+    "id": 11,
+    "image": "/assets/task-list.png",
+    "title": "Lista de tarefas",
+    "resume": "Lista de tarefas interativa (projeto EBAC). Desenvolvida com jQuery para adicionar, editar, excluir e marcar tarefas como concluídas, explorando manipulação dinâmica do DOM e manipulação de eventos.",
+    "linkRepo": "https://github.com/CauaMotta/task_list",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "JQuery", "Font Awesome"]
+  },
+  {
+    "id": 12,
+    "image": "/assets/contact-list-v1.png",
+    "title": "Lista de Contatos V1",
+    "resume": "Lista de contatos em jQuery (projeto EBAC). Desenvolvido para exercitar conhecimentos em jquery, manipulação do DOM, e CRUD completo (adicionar/editar/excluir contatos).",
+    "linkRepo": "https://github.com/CauaMotta/contact_list_v1",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "JQuery", "Font Awesome"]
+  },
+  {
+    "id": 13,
+    "image": "/assets/rock-n-shop.png",
+    "title": "Marceline Rock'n'Shop",
+    "resume": "Primeiro projeto EBAC: loja de guitarras da Marceline (Adventure Time) em HTML/CSS puro. Exercitando fundamentos de estrutura semântica e estilização sem frameworks.",
+    "linkRepo": "https://github.com/CauaMotta/landingpage_rocknshop",
+    "published": false,
+    "tecnologies": ["HTML", "CSS", "JQuery", "Font Awesome"]
   }
 ]

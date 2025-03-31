@@ -25,7 +25,7 @@ const Card = ({ type, content }: Props) => {
             <div className="content">
               <h3 className="title--small pi-8">{project.title}</h3>
               <Line />
-              <p className="text--small pi-8">{project.resume}</p>
+              <p className="resume text--small pi-8">{project.resume}</p>
             </div>
           </div>
           <div className="btn-container">

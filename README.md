@@ -33,7 +33,7 @@ npm run dev
 
 ## 🚧 Próximos Passos
 
-- Criar a estrutura inicial da página
+- Criar a estrutura inicial da página ✅
 - Desenvolver a apresentação dos projetos
 - Adicionar funcionalidades extras (como light mode)
 - Adicionar testes unitários
