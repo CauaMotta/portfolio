@@ -35,14 +35,6 @@ export const Container = styled.div<Props>`
 
       width: ${({ type }: Props) => (type === 'project' ? '160px' : '64px')};
       height: ${({ type }: Props) => (type === 'project' ? '120px' : '64px')};
-
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-      }
     }
 
     .content {
@@ -100,14 +92,6 @@ export const Grid = styled.div`
       border-radius: 16px;
 
       overflow: hidden;
-
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-      }
     }
   }
 
@@ -144,4 +128,12 @@ export const Grid = styled.div`
       }
     }
   }
+`
+
+export const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 `

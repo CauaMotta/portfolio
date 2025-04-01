@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { useTheme } from 'styled-components'
 
 import Modal from '../Modal'
 
 import { Button, Line, Link } from '../../styles'
-import { Container, Grid } from './styles'
+import { Container, Grid, Image } from './styles'
 
 type Props = {
   type: 'project' | 'certificate'
@@ -12,6 +13,7 @@ type Props = {
 
 const Card = ({ type, content }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const theme = useTheme()
 
   if (type === 'project') {
     const project = content as Project
@@ -20,7 +22,7 @@ const Card = ({ type, content }: Props) => {
         <Container type="project">
           <div className="content-container">
             <div className="image-container">
-              <img src={project.image} alt={project.title} />
+              <Image src={project.image} alt={project.title} />
             </div>
             <div className="content">
               <h3 className="title--small pi-8">{project.title}</h3>
@@ -44,7 +46,7 @@ const Card = ({ type, content }: Props) => {
           <Grid>
             <div className="grid-item-1">
               <div className="image-container">
-                <img src={project.image} alt={project.title} />
+                <Image src={project.image} alt={project.title} />
               </div>
             </div>
             <div className="grid-item-2">
@@ -86,7 +88,14 @@ const Card = ({ type, content }: Props) => {
     <Container type="certificate">
       <div className="content-container">
         <div className="image-container">
-          <img src={certificate.image} alt={certificate.title} />
+          <Image
+            src={
+              theme.name === 'dark'
+                ? `/assets/${certificate.image}-light.svg`
+                : `/assets/${certificate.image}-dark.svg`
+            }
+            alt={certificate.title}
+          />
         </div>
         <div className="content">
           <h3 className="title--small pi-8">{certificate.title}</h3>
