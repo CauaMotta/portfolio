@@ -11,7 +11,7 @@ declare type Project = {
 
 declare type Certificate = {
   id: number
-  image: string
+  school: string
   title: string
   date: string
   link: string

@@ -89,11 +89,9 @@ const Card = ({ type, content }: Props) => {
       <div className="content-container">
         <div className="image-container">
           <Image
-            src={
-              theme.name === 'dark'
-                ? `/assets/${certificate.image}-light.svg`
-                : `/assets/${certificate.image}-dark.svg`
-            }
+            src={`/assets/${certificate.school}-${
+              theme.name === 'dark' ? 'light' : 'dark'
+            }.svg`}
             alt={certificate.title}
           />
         </div>
