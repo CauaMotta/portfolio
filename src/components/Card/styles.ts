@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 import { Line } from '../../styles'
 
 type Props = {
@@ -7,7 +6,7 @@ type Props = {
 }
 
 export const Container = styled.div<Props>`
-  background-color: ${variables.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
   border-radius: 16px;
 
   padding: 24px 16px;
@@ -24,10 +23,14 @@ export const Container = styled.div<Props>`
 
     .image-container {
       border-radius: 8px;
-      border: ${({ type }: Props) =>
-        type === 'project' ? `2px solid ${variables.primaryColor}` : 'none'};
+      border: ${(props) =>
+        props.type === 'project'
+          ? `2px solid ${props.theme.colors.primaryColor}`
+          : 'none'};
       background-color: ${({ type }: Props) =>
-        type === 'project' ? variables.primaryColor : 'transparent'};
+        type === 'project'
+          ? ({ theme }) => theme.colors.primaryColor
+          : 'transparent'};
       overflow: hidden;
 
       width: ${({ type }: Props) => (type === 'project' ? '160px' : '64px')};
@@ -50,7 +53,7 @@ export const Container = styled.div<Props>`
       }
 
       ${Line} {
-        background-color: ${variables.backgroundColor};
+        background-color: ${({ theme }) => theme.colors.backgroundColor};
       }
     }
   }
@@ -63,12 +66,12 @@ export const Container = styled.div<Props>`
     .certificate-link {
       padding: 6px 16px;
 
-      color: ${variables.fontColor};
+      color: ${({ theme }) => theme.colors.fontColor};
       font-weight: bold;
       text-decoration: none;
 
       &:hover {
-        color: ${variables.fontColorSecondary};
+        color: ${({ theme }) => theme.colors.fontColorSecondary};
       }
     }
   }
@@ -92,8 +95,8 @@ export const Grid = styled.div`
       width: 256px;
       height: 192px;
 
-      background-color: ${variables.primaryColor};
-      border: 3px solid ${variables.primaryColor};
+      background-color: ${({ theme }) => theme.colors.primaryColor};
+      border: 3px solid ${({ theme }) => theme.colors.primaryColor};
       border-radius: 16px;
 
       overflow: hidden;

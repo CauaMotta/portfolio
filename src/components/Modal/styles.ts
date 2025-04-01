@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 import { Line } from '../../styles'
 
 export const ModalContainer = styled.div`
@@ -26,7 +25,10 @@ export const ModalCard = styled.div`
   position: relative;
   z-index: 1;
 
-  background-color: ${variables.secondaryColor};
+  background-color: ${({ theme }) =>
+    theme.name === 'dark'
+      ? theme.colors.secondaryColor
+      : theme.colors.backgroundColor};
 
   padding: 24px 16px;
   border-radius: 16px;
@@ -40,19 +42,22 @@ export const ModalCard = styled.div`
       background: transparent;
       border: none;
 
-      color: ${variables.fontColorSecondary};
+      color: ${({ theme }) => theme.colors.fontColorSecondary};
       font-size: 24px;
 
       cursor: pointer;
 
       &:hover {
-        color: ${variables.fontColor};
+        color: ${({ theme }) => theme.colors.fontColor};
       }
     }
   }
 
   ${Line} {
-    background-color: ${variables.backgroundColor};
+    background-color: ${({ theme }) =>
+      theme.name === 'dark'
+        ? theme.colors.backgroundColor
+        : theme.colors.secondaryColor};
   }
 `
 

@@ -20,8 +20,8 @@ export const Container = styled.aside`
       object-fit: cover;
 
       border-radius: 50%;
-      border: 3px solid ${variables.primaryColor};
-      background-color: ${variables.primaryColor};
+      border: 3px solid ${({ theme }) => theme.colors.primaryColor};
+      background-color: ${({ theme }) => theme.colors.primaryColor};
     }
   }
 
@@ -51,6 +51,32 @@ export const Container = styled.aside`
     h2 {
       font-size: 16px;
       margin-bottom: 8px;
+    }
+  }
+
+  .theme {
+    margin-top: 16px;
+
+    button {
+      width: 100%;
+      padding: 8px 16px;
+
+      background: transparent;
+      border: none;
+
+      font-family: ${variables.fontFamily};
+      color: ${({ theme }) => theme.colors.fontColor};
+      font-size: 16px;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.primaryColor};
+        border-radius: 8px;
+
+        color: ${({ theme }) => theme.colors.secondaryColor};
+      }
     }
   }
 `

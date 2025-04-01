@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 
 export const Container = styled.section`
   position: relative;
@@ -7,7 +6,7 @@ export const Container = styled.section`
   padding: 40px 32px;
   margin-top: 40px;
 
-  background-color: ${variables.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
   border-radius: 16px;
 
   .m-top {

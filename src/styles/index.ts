@@ -11,13 +11,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${variables.fontFamily};
 
     scrollbar-width: thin;
-    scrollbar-color: ${variables.primaryColorDark} ${variables.secondaryColor};
+    scrollbar-color: ${({ theme }) => theme.colors.primaryColorDark} ${({
+  theme
+}) => theme.colors.secondaryColor};
     scroll-margin-top: 132px;
   }
 
   body {
-    background-color: ${variables.backgroundColor};
-    color: ${variables.fontColor};
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
+    color: ${({ theme }) => theme.colors.fontColor};
     font-size: 16px;
     font-weight: 400;
   }
@@ -39,21 +41,21 @@ export const GlobalStyle = createGlobalStyle`
 
   .text {
     line-height: 22px;
-    color: ${variables.fontColorSecondary};
+    color: ${({ theme }) => theme.colors.fontColorSecondary};
 
     &--small {
       font-size: 14px;
       line-height: 22px;
-      color: ${variables.fontColorSecondary};
+      color: ${({ theme }) => theme.colors.fontColorSecondary};
     }
   }
 
   .social-link {
-    color: ${variables.primaryColor};
+    color: ${({ theme }) => theme.colors.primaryColor};
     text-decoration: none;
 
     &:hover {
-      color: ${variables.primaryColorDark};
+      color: ${({ theme }) => theme.colors.primaryColorDark};
     }
   }
 
@@ -77,7 +79,7 @@ export const Container = styled.div`
 
 export const Line = styled.hr`
   height: 2px;
-  background-color: ${variables.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
   border: none;
   margin: 8px 0;
 `
@@ -86,19 +88,19 @@ export const Button = styled.button`
   display: inline-block;
   padding: 6px 16px;
 
-  color: ${variables.primaryColor};
+  color: ${({ theme }) => theme.colors.primaryColor};
   font-weight: bold;
   font-size: 16px;
 
   background-color: transparent;
-  border: 3px solid ${variables.primaryColor};
+  border: 3px solid ${({ theme }) => theme.colors.primaryColor};
   border-radius: 8px;
 
   cursor: pointer;
 
   &:hover {
-    background-color: ${variables.primaryColor};
-    color: ${variables.secondaryColor};
+    background-color: ${({ theme }) => theme.colors.primaryColor};
+    color: ${({ theme }) => theme.colors.secondaryColor};
   }
 `
 
@@ -106,19 +108,19 @@ export const Link = styled.a`
   display: inline-block;
   padding: 6px 16px;
 
-  color: ${variables.secondaryColor};
+  color: ${({ theme }) => theme.colors.secondaryColor};
   font-weight: bold;
   font-size: 16px;
   text-decoration: none;
 
-  background-color: ${variables.primaryColor};
-  border: 3px solid ${variables.primaryColor};
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+  border: 3px solid ${({ theme }) => theme.colors.primaryColor};
   border-radius: 8px;
 
   cursor: pointer;
 
   &:hover {
-    background-color: ${variables.primaryColorDark};
-    border-color: ${variables.primaryColorDark};
+    background-color: ${({ theme }) => theme.colors.primaryColorDark};
+    border-color: ${({ theme }) => theme.colors.primaryColorDark};
   }
 `

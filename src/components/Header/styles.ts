@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 
 export const Container = styled.header`
   width: 100%;
@@ -8,7 +7,7 @@ export const Container = styled.header`
   top: 0;
   z-index: 1;
 
-  background-color: ${variables.backgroundColor};
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
   padding-top: 40px;
 
   .navContainer {
@@ -25,7 +24,7 @@ export const Container = styled.header`
         background-color: transparent;
         border: none;
 
-        color: ${variables.fontColor};
+        color: ${({ theme }) => theme.colors.fontColor};
         font-size: 18px;
         font-weight: bold;
 
@@ -51,7 +50,7 @@ export const Container = styled.header`
         position: absolute;
         bottom: 0;
         height: 3px;
-        background-color: ${variables.primaryColor};
+        background-color: ${({ theme }) => theme.colors.primaryColor};
         border-radius: 8px;
         transition: all 0.5s;
       }

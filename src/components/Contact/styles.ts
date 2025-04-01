@@ -1,10 +1,9 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 
 export const Container = styled.section`
   margin-top: 40px;
   padding: 40px 32px;
-  background-color: ${variables.secondaryColor};
+  background-color: ${({ theme }) => theme.colors.secondaryColor};
   border-radius: 16px;
 
   position: relative;
@@ -26,9 +25,9 @@ export const Container = styled.section`
 
     background: transparent;
     border: none;
-    border-bottom: 2px solid ${variables.backgroundColor};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.backgroundColor};
 
-    color: ${variables.fontColor};
+    color: ${({ theme }) => theme.colors.fontColor};
     font-size: 16px;
 
     padding-inline: 8px;
@@ -38,13 +37,13 @@ export const Container = styled.section`
     cursor: pointer;
 
     span {
-      color: ${variables.fontColorSecondary};
+      color: ${({ theme }) => theme.colors.fontColorSecondary};
     }
 
     &:hover {
-      border-color: ${variables.primaryColor};
+      border-color: ${({ theme }) => theme.colors.primaryColor};
       span {
-        color: ${variables.fontColor};
+        color: ${({ theme }) => theme.colors.fontColor};
       }
     }
   }
@@ -70,21 +69,21 @@ export const Container = styled.section`
       background: transparent;
 
       border: none;
-      border-bottom: 2px solid ${variables.backgroundColor};
+      border-bottom: 2px solid ${({ theme }) => theme.colors.backgroundColor};
 
       outline: none;
 
       font-size: 16px;
-      color: ${variables.fontColor};
+      color: ${({ theme }) => theme.colors.fontColor};
 
       padding: 4px 8px;
 
       &:hover {
-        border-color: ${variables.primaryColor};
+        border-color: ${({ theme }) => theme.colors.primaryColor};
       }
 
       &:focus {
-        border-color: ${variables.primaryColor};
+        border-color: ${({ theme }) => theme.colors.primaryColor};
       }
     }
 
@@ -101,18 +100,18 @@ export const Container = styled.section`
       align-self: flex-end;
       padding: 6px 16px;
 
-      background-color: ${variables.primaryColor};
+      background-color: ${({ theme }) => theme.colors.primaryColor};
       border: none;
       border-radius: 8px;
 
-      color: ${variables.secondaryColor};
+      color: ${({ theme }) => theme.colors.secondaryColor};
       font-size: 16px;
       font-weight: bold;
 
       cursor: pointer;
 
       &:hover {
-        background-color: ${variables.primaryColorDark};
+        background-color: ${({ theme }) => theme.colors.primaryColorDark};
       }
     }
   }

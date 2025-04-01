@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import variables from '../../styles/variables'
 
 export const Container = styled.footer`
   margin-top: 64px;
@@ -8,11 +7,11 @@ export const Container = styled.footer`
 
   text-align: center;
 
-  background-color: ${variables.primaryColor};
+  background-color: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 16px;
 
   .title--small,
   .text--small {
-    color: ${variables.secondaryColor};
+    color: ${({ theme }) => theme.colors.secondaryColor};
   }
 `
