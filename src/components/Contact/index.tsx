@@ -8,12 +8,14 @@ import Modal from '../Modal'
 
 import { Container } from './styles'
 import variables from '../../styles/variables'
+import { useTheme } from 'styled-components'
 
 const Contact = () => {
   const [copy, setCopy] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalMessage, setModalMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const theme = useTheme()
 
   const copyToClipboard = async () => {
     try {
@@ -171,7 +173,7 @@ const Contact = () => {
           <button className="submitBtn" type="submit">
             {isLoading ? (
               <PulseLoader
-                color={variables.secondaryColor}
+                color={theme.colors.secondaryColor}
                 size={10}
                 speedMultiplier={0.75}
               />
