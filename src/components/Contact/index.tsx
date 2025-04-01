@@ -7,7 +7,6 @@ import { PulseLoader } from 'react-spinners'
 import Modal from '../Modal'
 
 import { Container } from './styles'
-import variables from '../../styles/variables'
 import { useTheme } from 'styled-components'
 
 const Contact = () => {
