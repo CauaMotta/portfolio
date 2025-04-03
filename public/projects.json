@@ -15,7 +15,8 @@
       "EmailJs",
       "Yup",
       "Formik",
-      "React Spinners"
+      "React Spinners",
+      "Vitest & Testing Library"
     ]
   },
   {

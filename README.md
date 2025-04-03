@@ -12,6 +12,8 @@ Este é meu projeto de portfólio pessoal, desenvolvido em **React** com **Vite*
 - ✅ [Yup](https://github.com/jquense/yup) - Validação de formulários de forma simples e eficiente
 - 📝 [Formik](https://formik.org/) - Gerenciamento de formulários no React
 - 🔄 [React Spinners](https://www.davidhu.io/react-spinners/) - Componentes de carregamento estilizados para React
+- 🧪 [Vitest](https://vitest.dev/) - Testes unitários rápidos e eficientes para projetos com Vite
+- 🧩 [Testing Library](https://testing-library.com/) - Conjunto de ferramentas para testes acessíveis e eficazes
 
 ## 📦 Instalação e Execução
 
