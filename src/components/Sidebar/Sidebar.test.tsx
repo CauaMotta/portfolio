@@ -16,26 +16,26 @@ beforeEach(() => {
   )
 })
 
-describe('Testes para as informacoes do usuario', () => {
-  test('Deve renderizar a foto de perfil', () => {
+describe('Sidebar - Render infos', () => {
+  test('Should render profile picture', () => {
     expect(screen.getByAltText('Foto de perfil do GitHub')).toBeInTheDocument()
   })
 
-  test('Deve renderizar as informacoes do usuario', () => {
+  test('Should render user info', () => {
     expect(screen.getByText('Cauã Motta')).toBeInTheDocument()
     expect(screen.getByText('@CauaMotta')).toBeInTheDocument()
     expect(screen.getByText('Engenheiro Full-Stack')).toBeInTheDocument()
   })
 })
 
-describe('Testes para os links de redes sociais', () => {
-  test('Deve renderizar os links de redes sociais', () => {
+describe('Sidebar - Social links', () => {
+  test('Should render social links', () => {
     expect(screen.getByText('GitHub')).toBeInTheDocument()
     expect(screen.getByText('LinkedIn')).toBeInTheDocument()
     expect(screen.getByText('Instagram')).toBeInTheDocument()
   })
 
-  test('links sociais pussem URLs validas', () => {
+  test('Should check the correct href in the links', () => {
     const githubLink = screen.getByText('GitHub').closest('a')
     const linkedInLink = screen.getByText('LinkedIn').closest('a')
     const instagramLink = screen.getByText('Instagram').closest('a')
@@ -52,12 +52,12 @@ describe('Testes para os links de redes sociais', () => {
   })
 })
 
-describe('Testes para o botão de mudar o tema', () => {
-  test('Deve renderizar o botão de mudar o tema', () => {
+describe('Sidebar - Theme button', () => {
+  test('Should render theme button', () => {
     expect(screen.getByText('Mudar tema')).toBeInTheDocument()
   })
 
-  test('Deve chamar a função changeTheme quando o botão é clicado', async () => {
+  test('Should call the function on the button is clicked', async () => {
     const button = screen.getByText('Mudar tema')
     await userEvent.click(button)
 

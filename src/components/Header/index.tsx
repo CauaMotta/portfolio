@@ -43,7 +43,7 @@ const Header = () => {
             Certificados
           </button>
           <button onClick={() => scrollToSection('contact')}>Contato</button>
-          <div className={`line ${activeSection}`}></div>
+          <div data-testid="line" className={`line ${activeSection}`}></div>
         </nav>
       </div>
     </Container>
