@@ -25,7 +25,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
         <Line />
         <div className="pi-8">{children}</div>
       </ModalCard>
-      <Overlay onClick={onClose} />
+      <Overlay data-testid="overlay" onClick={onClose} />
     </ModalContainer>
   )
 }

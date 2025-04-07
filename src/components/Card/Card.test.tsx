@@ -70,7 +70,6 @@ describe('Card - Certificate', () => {
   })
 
   test('Should render the certificate card', () => {
-    screen.debug()
     expect(screen.getByAltText('Test title')).toHaveAttribute(
       'src',
       '/assets/test-light.svg'
