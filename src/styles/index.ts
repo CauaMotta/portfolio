@@ -15,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
   theme
 }) => theme.colors.secondaryColor};
     scroll-margin-top: 132px;
+
+    @media (max-width: ${variables.breakpoints.mobile}) {
+      scrollbar-width: none;
+    }
   }
 
   body {
@@ -75,6 +79,11 @@ export const Container = styled.div`
   margin: 0 auto;
   display: grid;
   grid-template-columns: 256px auto;
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const Line = styled.hr`

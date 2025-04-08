@@ -79,4 +79,63 @@ export const Container = styled.aside`
       }
     }
   }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    height: 70px;
+
+    flex-direction: row;
+
+    padding: 0 16px;
+
+    .avatar {
+      img {
+        width: 48px;
+        height: 48px;
+
+        border-width: 2px;
+      }
+    }
+
+    .info {
+      margin-top: 0;
+      margin-left: 8px;
+
+      line-height: 16px;
+
+      h1 {
+        font-size: 16px;
+      }
+
+      span {
+        line-height: 16px;
+        font-size: 12px;
+        margin: 0;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    .social {
+      display: none;
+    }
+
+    .theme {
+      margin: 0;
+
+      button {
+        -webkit-tap-highlight-color: transparent;
+
+        &:hover {
+          background-color: transparent;
+          color: ${({ theme }) => theme.colors.fontColor};
+        }
+
+        span {
+          display: none;
+        }
+      }
+    }
+  }
 `

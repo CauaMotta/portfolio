@@ -63,7 +63,7 @@ const Sidebar = ({ changeTheme }: Props) => {
           ) : (
             <i className="fa-solid fa-moon"></i>
           )}{' '}
-          Mudar tema
+          <span>Mudar tema</span>
         </button>
       </div>
     </Container>
