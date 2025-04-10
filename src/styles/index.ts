@@ -15,13 +15,6 @@ export const GlobalStyle = createGlobalStyle`
   theme
 }) => theme.colors.secondaryColor};
     scroll-margin-top: 132px;
-
-    -webkit-tap-highlight-color: transparent;
-
-    @media (max-width: ${variables.breakpoints.mobile}) {
-      scrollbar-width: none;
-      scroll-margin-top: 218px;
-    }
   }
 
   body {
@@ -73,6 +66,28 @@ export const GlobalStyle = createGlobalStyle`
   .mt-8 {
     margin-top: 8px;
   }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    * {
+      scrollbar-width: none;
+      scroll-margin-top: 218px;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .title {
+      font-size: 18px;
+
+      .emphasis {
+        font-size: 24px;
+      }
+    }
+
+    .text {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
 `
 
 export const Container = styled.div`
@@ -115,6 +130,13 @@ export const Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.primaryColor};
     color: ${({ theme }) => theme.colors.secondaryColor};
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    font-size: 14px;
+    border-width: 2px;
+
+    padding-inline: 14px;
   }
 `
 

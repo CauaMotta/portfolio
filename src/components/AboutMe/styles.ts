@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import variables from '../../styles/variables'
 
 export const Container = styled.section`
   position: relative;
@@ -26,5 +27,17 @@ export const Container = styled.section`
     font-size: 60px;
     opacity: 0.15;
     transform: rotate(5deg);
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    padding: 32px 24px;
+
+    margin-top: 32px;
+
+    .hashtag {
+      font-size: 48px;
+      top: 28px;
+      right: 32px;
+    }
   }
 `
