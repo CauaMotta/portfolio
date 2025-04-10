@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Line } from '../../styles'
+import variables from '../../styles/variables'
 
 type Props = {
   type: 'project' | 'certificate'
@@ -70,6 +71,42 @@ export const Container = styled.div<Props>`
 
   &:hover {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    /* padding: 16px; */
+    margin-bottom: 24px;
+
+    gap: 12px;
+
+    .content-container {
+      flex-direction: column;
+      gap: 8px;
+
+      .image-container {
+        width: ${({ type }: Props) => (type === 'project' ? '256px' : '64px')};
+        height: ${({ type }: Props) => (type === 'project' ? '160px' : '64px')};
+      }
+
+      .content {
+        width: 100%;
+
+        text-align: center;
+
+        .resume {
+          height: auto;
+        }
+
+        ${Line} {
+          margin: 4px 0 8px 0;
+        }
+      }
+    }
+
+    .btn-container {
+      flex-direction: column;
+      gap: 8px;
+    }
   }
 `
 

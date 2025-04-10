@@ -78,6 +78,10 @@ export const GlobalStyle = createGlobalStyle`
     .title {
       font-size: 18px;
 
+      &--small {
+        font-size: 16px;
+      }
+
       .emphasis {
         font-size: 24px;
       }
@@ -86,6 +90,11 @@ export const GlobalStyle = createGlobalStyle`
     .text {
       font-size: 14px;
       line-height: 18px;
+
+      &--small {
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
   }
 `
@@ -148,6 +157,7 @@ export const Link = styled.a`
   font-weight: bold;
   font-size: 16px;
   text-decoration: none;
+  text-align: center;
 
   background-color: ${({ theme }) => theme.colors.primaryColor};
   border: 3px solid ${({ theme }) => theme.colors.primaryColor};
@@ -158,5 +168,12 @@ export const Link = styled.a`
   &:hover {
     background-color: ${({ theme }) => theme.colors.primaryColorDark};
     border-color: ${({ theme }) => theme.colors.primaryColorDark};
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    font-size: 14px;
+    border-width: 2px;
+
+    padding-inline: 14px;
   }
 `
