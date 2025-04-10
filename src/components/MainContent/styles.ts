@@ -7,6 +7,6 @@ export const Container = styled.div`
   overflow-y: scroll;
 
   @media (max-width: ${variables.breakpoints.mobile}) {
-    flex: 1;
+    overflow-y: visible;
   }
 `

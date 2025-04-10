@@ -16,8 +16,11 @@ export const GlobalStyle = createGlobalStyle`
 }) => theme.colors.secondaryColor};
     scroll-margin-top: 132px;
 
+    -webkit-tap-highlight-color: transparent;
+
     @media (max-width: ${variables.breakpoints.mobile}) {
       scrollbar-width: none;
+      scroll-margin-top: 218px;
     }
   }
 
@@ -83,6 +86,8 @@ export const Container = styled.div`
   @media (max-width: ${variables.breakpoints.mobile}) {
     display: flex;
     flex-direction: column;
+
+    height: auto;
   }
 `
 

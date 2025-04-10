@@ -81,11 +81,17 @@ export const Container = styled.aside`
   }
 
   @media (max-width: ${variables.breakpoints.mobile}) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
     height: 70px;
 
     flex-direction: row;
 
     padding: 0 16px;
+
+    background-color: ${({ theme }) => theme.colors.backgroundColor};
 
     .avatar {
       img {
@@ -125,8 +131,6 @@ export const Container = styled.aside`
       margin: 0;
 
       button {
-        -webkit-tap-highlight-color: transparent;
-
         &:hover {
           background-color: transparent;
           color: ${({ theme }) => theme.colors.fontColor};
