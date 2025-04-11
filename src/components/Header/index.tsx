@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react'
 
-import { scrollToSection } from '../../utils'
+import { scrollToSection, mobileBreakpoint } from '../../utils'
 
 import { Container } from './styles'
-import variables from '../../styles/variables'
 
 const sections = ['about', 'projects', 'certificates', 'contact']
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('about')
   const [menuOpen, setMenuOpen] = useState(false)
-
-  const mobileBreakpoint =
-    window.innerWidth <=
-    parseInt(variables.breakpoints.mobile.replace('px', ''))
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +39,7 @@ const Header = () => {
       mainContent?.addEventListener('scroll', handleScroll)
       return () => mainContent?.removeEventListener('scroll', handleScroll)
     }
-  }, [mobileBreakpoint])
+  }, [])
 
   const translateSection = () => {
     if (activeSection === 'about') return 'Início'

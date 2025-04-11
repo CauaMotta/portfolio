@@ -4,6 +4,8 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { PulseLoader } from 'react-spinners'
 
+import { mobileBreakpoint } from '../../utils'
+
 import Modal from '../Modal'
 
 import { Container } from './styles'
@@ -81,6 +83,11 @@ const Contact = () => {
     }
   })
 
+  const copyMessage = () => {
+    if (mobileBreakpoint) return 'copiar'
+    return 'clique para copiar'
+  }
+
   const isError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
@@ -99,7 +106,7 @@ const Contact = () => {
         <button className="emailBtn" onClick={copyToClipboard}>
           ocauamotta@gmail.com{' '}
           <span>
-            {copy ? 'copiado!' : 'clique para copiar'}{' '}
+            {copy ? 'copiado!' : copyMessage()}{' '}
             <i className="fa-solid fa-copy"></i>
           </span>
         </button>

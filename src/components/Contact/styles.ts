@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import variables from '../../styles/variables'
 
 export const Container = styled.section`
   margin-top: 40px;
@@ -133,5 +134,43 @@ export const Container = styled.section`
     font-size: 64px;
     opacity: 0.15;
     transform: rotate(5deg);
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    margin-top: 32px;
+    padding: 32px 24px;
+
+    .emailBtn {
+      font-size: 14px;
+
+      padding-inline: 6px;
+      margin-bottom: 16px;
+    }
+
+    .inputGroup {
+      margin-bottom: 8px;
+
+      label {
+        margin: 0;
+      }
+
+      input {
+        padding: 4px 6px;
+      }
+    }
+
+    .socialMedia {
+      ul {
+        margin-top: 8px;
+        margin-left: 16px;
+      }
+    }
+
+    .sectionIcon {
+      font-size: 48px;
+
+      top: 32px;
+      right: 32px;
+    }
   }
 `
