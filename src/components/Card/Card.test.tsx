@@ -13,17 +13,15 @@ vi.mock('../Modal', () => ({
 }))
 
 const projectMock: Project = {
-  id: 1,
   title: 'Test title',
   resume: 'Test description',
   image: 'test.png',
   linkRepo: 'https://github.com/test',
   published: false,
-  tecnologies: ['React', 'Typescript']
+  technologies: ['React', 'Typescript']
 }
 
 const certificateMock: Certificate = {
-  id: 1,
   title: 'Test title',
   date: '01/01/2000',
   school: 'test',
