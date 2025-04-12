@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useTheme } from 'styled-components'
 
+import { mobileBreakpoint } from '../../utils'
+
 import Modal from '../Modal'
 
 import { Button, Line, Link } from '../../styles'
@@ -50,6 +52,12 @@ const Card = ({ type, content }: Props) => {
               </div>
             </div>
             <div className="grid-item-2">
+              {mobileBreakpoint && (
+                <>
+                  <h2 className="title--small">{project.title}</h2>
+                  <Line />
+                </>
+              )}
               <p className="text">{project.resume}</p>
 
               <div className="section">

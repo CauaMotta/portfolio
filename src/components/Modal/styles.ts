@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Line } from '../../styles'
+import variables from '../../styles/variables'
 
 export const ModalContainer = styled.div`
   width: 100vw;
@@ -14,6 +15,10 @@ export const ModalContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    align-items: flex-end;
+  }
 `
 
 export const ModalCard = styled.div`
@@ -58,6 +63,38 @@ export const ModalCard = styled.div`
       theme.name === 'dark'
         ? theme.colors.backgroundColor
         : theme.colors.secondaryColor};
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    padding: 16px 16px 0 16px;
+
+    border-radius: 16px 16px 0 0;
+
+    .header {
+      display: none;
+    }
+
+    ${Line} {
+      display: none;
+    }
+
+    .drag-icon {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+
+      padding: 16px 0;
+      margin-top: -16px;
+
+      span {
+        display: block;
+        width: 40px;
+        height: 3px;
+        background-color: ${({ theme }) => theme.colors.fontColorSecondary};
+        border-radius: 10px;
+      }
+    }
   }
 `
 

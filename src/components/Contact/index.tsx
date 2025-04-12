@@ -199,7 +199,7 @@ const Contact = () => {
           setIsLoading(false)
         }}
       >
-        <p className="text">{modalMessage}</p>
+        <p className="modal-text text">{modalMessage}</p>
       </Modal>
       <div className="socialMedia">
         <h3 className="title--small">

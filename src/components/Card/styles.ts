@@ -165,6 +165,58 @@ export const Grid = styled.div`
       }
     }
   }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    margin-top: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding-bottom: 32px;
+
+    .grid-item-1 {
+      margin: 0 auto;
+      .image-container {
+        border-width: 2px;
+      }
+    }
+
+    .grid-item-2 {
+      h2 {
+        text-align: center;
+      }
+
+      ${Line} {
+        display: block;
+        margin-top: 4px;
+      }
+
+      .section {
+        margin-top: 8px;
+
+        ul {
+          padding-left: 0;
+          grid-auto-rows: 20px;
+
+          &:has(li:nth-child(6)) {
+            grid-template-rows: repeat(5, auto);
+          }
+
+          li {
+            min-height: 20px;
+            height: auto;
+          }
+        }
+
+        .links-container {
+          padding-left: 0;
+
+          flex-direction: column;
+        }
+      }
+    }
+  }
 `
 
 export const Image = styled.img`

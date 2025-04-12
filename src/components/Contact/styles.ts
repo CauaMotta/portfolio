@@ -172,5 +172,9 @@ export const Container = styled.section`
       top: 32px;
       right: 32px;
     }
+
+    .modal-text {
+      text-align: center;
+    }
   }
 `
