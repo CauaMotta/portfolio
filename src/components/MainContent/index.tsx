@@ -39,7 +39,7 @@ const MainContent = () => {
         >
           <>
             {projects.map((project) => (
-              <Card key={project.id} content={project} type="project" />
+              <Card key={project.title} content={project} type="project" />
             ))}
           </>
         </Section>
@@ -51,7 +51,7 @@ const MainContent = () => {
           <>
             {certificates.map((certificate) => (
               <Card
-                key={certificate.id}
+                key={certificate.title}
                 content={certificate}
                 type="certificate"
               />

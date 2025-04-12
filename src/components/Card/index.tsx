@@ -63,7 +63,7 @@ const Card = ({ type, content }: Props) => {
               <div className="section">
                 <h4 className="title--small">&#x1F6E0;&#xFE0F; Tecnologias</h4>
                 <ul>
-                  {project.tecnologies.map((technology) => (
+                  {project.technologies.map((technology) => (
                     <li className="text" key={technology}>
                       {technology}
                     </li>
