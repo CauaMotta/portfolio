@@ -20,6 +20,14 @@ describe('Modal', () => {
     )
   }
 
+  beforeAll(() => {
+    global.ResizeObserver = class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    }
+  })
+
   beforeEach(() => {
     mockOnClose.mockReset()
   })

@@ -9,7 +9,8 @@ import { darkTheme } from '../../themes'
 import { scrollToSection } from '../../utils'
 
 vi.mock('../../utils', () => ({
-  scrollToSection: vi.fn()
+  scrollToSection: vi.fn(),
+  mobileBreakpoint: false
 }))
 
 describe('Header - Render component', () => {

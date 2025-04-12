@@ -29,6 +29,14 @@ const renderContact = () => {
 }
 
 describe('Contact', () => {
+  beforeAll(() => {
+    global.ResizeObserver = class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    }
+  })
+
   beforeEach(() => {
     vi.clearAllMocks()
   })
