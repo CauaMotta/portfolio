@@ -28,6 +28,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
     'touches' in e ? e.touches[0].clientY : (e as React.MouseEvent).clientY
 
   const getTranslateY = () => {
+    if (!mobileBreakpoint) return 0
     switch (position) {
       case 'full':
         return fullOpen
