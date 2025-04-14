@@ -94,17 +94,29 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
       }
     }
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+
+    let resizeObserver: ResizeObserver | null = null
     if (contentRef.current) {
-      const resizeObserver = new ResizeObserver(() => {
+      resizeObserver = new ResizeObserver(() => {
         const height = contentRef.current!.getBoundingClientRect().height
         setContentHeight(height)
       })
 
       resizeObserver.observe(contentRef.current)
-
-      return () => resizeObserver.disconnect()
     }
-  }, [isOpen])
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      if (resizeObserver) resizeObserver.disconnect()
+    }
+  }, [isOpen, onClose])
 
   if (!isOpen) return null
 
