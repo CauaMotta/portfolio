@@ -13,6 +13,7 @@ import { useTheme } from 'styled-components'
 
 const Contact = () => {
   const [copy, setCopy] = useState(false)
+  const [copyError, setCopyError] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [modalMessage, setModalMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -25,6 +26,8 @@ const Contact = () => {
       setCopy(true)
       setTimeout(() => setCopy(false), 3000)
     } catch (err) {
+      setCopyError('Ocorreu um erro ao copiar.')
+      setTimeout(() => setCopyError(''), 3000)
       console.error('Erro ao copiar:', err)
     }
   }
@@ -102,8 +105,13 @@ const Contact = () => {
         Entre em <br /> <span className="emphasis">Contato!</span>
       </h2>
       <div>
-        <p className="text">Email para contato:</p>
-        <button className="emailBtn" onClick={copyToClipboard}>
+        <p className="text">
+          Email para contato: <small>{copyError}</small>
+        </p>
+        <button
+          className={`emailBtn ${copyError.length > 1 ? 'error' : ''}`}
+          onClick={copyToClipboard}
+        >
           ocauamotta@gmail.com{' '}
           <span>
             {copy ? 'copiado!' : copyMessage()}{' '}

@@ -16,6 +16,10 @@ export const Container = styled.section`
 
   .text {
     margin-bottom: 4px;
+
+    small {
+      color: darkred;
+    }
   }
 
   .emailBtn {
@@ -47,6 +51,10 @@ export const Container = styled.section`
         color: ${({ theme }) => theme.colors.fontColor};
       }
     }
+
+    &.error {
+      border-color: darkred;
+    }
   }
 
   .inputGroup {
@@ -54,10 +62,6 @@ export const Container = styled.section`
     flex-direction: column;
 
     margin-bottom: 16px;
-
-    small {
-      color: darkred;
-    }
 
     .error {
       border-color: darkred;
