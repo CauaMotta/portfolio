@@ -52,7 +52,7 @@ const Card = ({ type, content }: Props) => {
               </div>
             </div>
             <div className="grid-item-2">
-              {mobileBreakpoint && (
+              {mobileBreakpoint() && (
                 <>
                   <h2 className="title--small">{project.title}</h2>
                   <Line />

@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
     'touches' in e ? e.touches[0].clientY : (e as React.MouseEvent).clientY
 
   const getTranslateY = () => {
-    if (!mobileBreakpoint) return 0
+    if (!mobileBreakpoint()) return 0
     switch (position) {
       case 'full':
         return fullOpen
@@ -84,7 +84,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
   }
 
   useEffect(() => {
-    if (mobileBreakpoint) {
+    if (mobileBreakpoint()) {
       if (!isOpen) setPosition('closed')
       if (isOpen) {
         setPosition('half')
@@ -123,7 +123,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
           </button>
         </div>
         <Line />
-        {mobileBreakpoint && (
+        {mobileBreakpoint() && (
           <div
             className="drag-icon"
             onMouseDown={handleTouchStart}

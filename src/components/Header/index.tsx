@@ -19,8 +19,8 @@ const Header = () => {
         if (element) {
           const rect = element.getBoundingClientRect()
 
-          const topOffset = mobileBreakpoint ? 142 : 140
-          const bottomOffset = mobileBreakpoint ? 100 : 100
+          const topOffset = mobileBreakpoint() ? 142 : 140
+          const bottomOffset = mobileBreakpoint() ? 100 : 100
 
           if (rect.top <= topOffset && rect.bottom >= bottomOffset) {
             currentSection = section
@@ -31,7 +31,7 @@ const Header = () => {
       setActiveSection(currentSection)
     }
 
-    if (mobileBreakpoint) {
+    if (mobileBreakpoint()) {
       window.addEventListener('scroll', handleScroll)
       return () => window.removeEventListener('scroll', handleScroll)
     } else {
@@ -100,11 +100,13 @@ const Header = () => {
           <div
             data-testid="line"
             className={`active ${activeSection} ${menuOpen ? 'open' : ''}`}
-            onClick={mobileBreakpoint ? () => setMenuOpen(!menuOpen) : () => {}}
+            onClick={
+              mobileBreakpoint() ? () => setMenuOpen(!menuOpen) : () => {}
+            }
           >
-            {mobileBreakpoint && <p>{translateSection()}</p>}
+            {mobileBreakpoint() && <p>{translateSection()}</p>}
           </div>
-          {mobileBreakpoint && (
+          {mobileBreakpoint() && (
             <button
               className={`menuBtn ${menuOpen ? 'open' : ''}`}
               onClick={() => setMenuOpen(!menuOpen)}

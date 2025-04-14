@@ -7,5 +7,11 @@ export const scrollToSection = (sectionId: string) => {
   }
 }
 
-export const mobileBreakpoint =
+export const mobileBreakpoint = () =>
   window.innerWidth <= parseInt(variables.breakpoints.mobile.replace('px', ''))
+
+export const getBreakpoint = (width: number) => {
+  if (width <= parseInt(variables.breakpoints.mobile.replace('px', '')))
+    return 'mobile'
+  return 'desktop'
+}

@@ -84,7 +84,7 @@ const Contact = () => {
   })
 
   const copyMessage = () => {
-    if (mobileBreakpoint) return 'copiar'
+    if (mobileBreakpoint()) return 'copiar'
     return 'clique para copiar'
   }
 
