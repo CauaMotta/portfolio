@@ -19,7 +19,7 @@ const Header = () => {
         if (element) {
           const rect = element.getBoundingClientRect()
 
-          const topOffset = mobileBreakpoint() ? 142 : 140
+          const topOffset = mobileBreakpoint() ? 134 : 140
           const bottomOffset = mobileBreakpoint() ? 100 : 100
 
           if (rect.top <= topOffset && rect.bottom >= bottomOffset) {
