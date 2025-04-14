@@ -1,22 +1,17 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '../../../test/setup'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { ThemeProvider } from 'styled-components'
 
 import Modal from '.'
-
-import { darkTheme } from '../../themes'
 
 describe('Modal', () => {
   const mockOnClose = vi.fn()
 
   const renderModal = (isOpen = true) => {
     render(
-      <ThemeProvider theme={darkTheme}>
-        <Modal isOpen={isOpen} onClose={mockOnClose} title="Modal Title">
-          <div data-testid="modal-content">Modal content</div>
-        </Modal>
-      </ThemeProvider>
+      <Modal isOpen={isOpen} onClose={mockOnClose} title="Modal Title">
+        <div data-testid="modal-content">Modal content</div>
+      </Modal>
     )
   }
 

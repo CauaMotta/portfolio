@@ -1,17 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { render, screen } from '../../../test/setup'
 
 import Footer from '.'
 
-import { darkTheme } from '../../themes'
-
 describe('Footer', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <Footer />
-      </ThemeProvider>
-    )
+    render(<Footer />)
   })
 
   test('Should render the footer', () => {

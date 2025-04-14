@@ -1,19 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '../../../test/setup'
 import userEvent from '@testing-library/user-event'
-import { ThemeProvider } from 'styled-components'
 
 import Sidebar from '.'
-
-import { darkTheme } from '../../themes'
 
 const mockChangeTheme = vi.fn()
 
 beforeEach(() => {
-  render(
-    <ThemeProvider theme={darkTheme}>
-      <Sidebar changeTheme={mockChangeTheme} />
-    </ThemeProvider>
-  )
+  render(<Sidebar changeTheme={mockChangeTheme} />)
 })
 
 describe('Sidebar - Render infos', () => {

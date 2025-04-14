@@ -1,10 +1,7 @@
-import { act, render, screen } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { act, render, screen } from '../../../test/setup'
 import { vi } from 'vitest'
 
 import MainContent from '.'
-
-import { darkTheme } from '../../themes'
 
 vi.mock('../Header', () => ({
   default: () => <div data-testid="Header" />
@@ -55,11 +52,7 @@ describe('MainContent', () => {
 
   test('Should render the component and data', async () => {
     await act(async () => {
-      render(
-        <ThemeProvider theme={darkTheme}>
-          <MainContent />
-        </ThemeProvider>
-      )
+      render(<MainContent />)
     })
 
     expect(screen.getByTestId('Header')).toBeInTheDocument()

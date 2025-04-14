@@ -1,12 +1,9 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '../../../test/setup'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { ThemeProvider } from 'styled-components'
 import emailjs from '@emailjs/browser'
 
 import Contact from '.'
-
-import { darkTheme } from '../../themes'
 
 vi.mock('@emailjs/browser', () => ({
   default: {
@@ -19,14 +16,6 @@ Object.assign(navigator, {
     writeText: vi.fn()
   }
 })
-
-const renderContact = () => {
-  return render(
-    <ThemeProvider theme={darkTheme}>
-      <Contact />
-    </ThemeProvider>
-  )
-}
 
 describe('Contact', () => {
   beforeAll(() => {
@@ -42,7 +31,7 @@ describe('Contact', () => {
   })
 
   test('Should copy the email on button click', async () => {
-    renderContact()
+    render(<Contact />)
 
     const copyBtn = screen.getByRole('button', { name: /clique para copiar/i })
     await userEvent.click(copyBtn)
@@ -56,7 +45,7 @@ describe('Contact', () => {
   })
 
   test('Should render the contact form', () => {
-    renderContact()
+    render(<Contact />)
 
     expect(screen.getByLabelText(/Email/i)).toBeInTheDocument()
     expect(screen.getByLabelText(/Nome/i)).toBeInTheDocument()
@@ -65,7 +54,7 @@ describe('Contact', () => {
   })
 
   test('Should check the form input', async () => {
-    renderContact()
+    render(<Contact />)
 
     await userEvent.click(screen.getByRole('button', { name: /Enviar/i }))
 
@@ -87,7 +76,7 @@ describe('Contact', () => {
 
   test('Should check the form sent successfully', async () => {
     vi.mocked(emailjs.send).mockResolvedValue({ status: 200, text: 'OK' })
-    const { rerender } = renderContact()
+    const { rerender } = render(<Contact />)
 
     await userEvent.type(screen.getByLabelText(/Email/i), 'teste@email.com')
     await userEvent.type(screen.getByLabelText(/Nome/i), 'Nome Teste')
@@ -96,11 +85,7 @@ describe('Contact', () => {
 
     await userEvent.click(screen.getByRole('button', { name: /Enviar/i }))
 
-    rerender(
-      <ThemeProvider theme={darkTheme}>
-        <Contact />
-      </ThemeProvider>
-    )
+    rerender(<Contact />)
 
     expect(
       screen.getByText('Seu email foi enviado com sucesso!')
@@ -110,7 +95,7 @@ describe('Contact', () => {
   test('Should check the failed request form', async () => {
     vi.mocked(emailjs.send).mockRejectedValue({ status: 400, text: 'ERROR' })
 
-    const { rerender } = renderContact()
+    const { rerender } = render(<Contact />)
 
     await userEvent.type(screen.getByLabelText(/Email/i), 'teste@email.com')
     await userEvent.type(screen.getByLabelText(/Nome/i), 'Nome Teste')
@@ -119,11 +104,7 @@ describe('Contact', () => {
 
     await userEvent.click(screen.getByRole('button', { name: /Enviar/i }))
 
-    rerender(
-      <ThemeProvider theme={darkTheme}>
-        <Contact />
-      </ThemeProvider>
-    )
+    rerender(<Contact />)
 
     expect(
       screen.getByText('Ocorreu um erro ao enviar o email. Tente novamente.')
@@ -131,7 +112,7 @@ describe('Contact', () => {
   })
 
   test('Should render the social links', () => {
-    renderContact()
+    render(<Contact />)
 
     expect(screen.getByRole('link', { name: /GitHub/i })).toHaveAttribute(
       'href',

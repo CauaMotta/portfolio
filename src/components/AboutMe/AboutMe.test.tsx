@@ -1,10 +1,8 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '../../../test/setup'
 import userEvent from '@testing-library/user-event'
-import { ThemeProvider } from 'styled-components'
 
 import AboutMe from '.'
 
-import { darkTheme } from '../../themes'
 import { scrollToSection } from '../../utils'
 
 vi.mock('../../utils', () => ({
@@ -13,11 +11,7 @@ vi.mock('../../utils', () => ({
 
 describe('AboutMe', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <AboutMe />
-      </ThemeProvider>
-    )
+    render(<AboutMe />)
   })
 
   test('Should render all text', () => {

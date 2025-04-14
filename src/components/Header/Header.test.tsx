@@ -1,25 +1,19 @@
-import { act, render, screen, waitFor } from '@testing-library/react'
+import { act, render, screen, waitFor } from '../../../test/setup'
 import userEvent from '@testing-library/user-event'
-import { ThemeProvider } from 'styled-components'
 import { vi } from 'vitest'
 
 import Header from '.'
 
-import { darkTheme } from '../../themes'
 import { scrollToSection } from '../../utils'
 
 vi.mock('../../utils', () => ({
   scrollToSection: vi.fn(),
-  mobileBreakpoint: false
+  mobileBreakpoint: vi.fn().mockReturnValue(false)
 }))
 
 describe('Header - Render component', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <Header />
-      </ThemeProvider>
-    )
+    render(<Header />)
   })
 
   test('Should render all navigation buttons', () => {
@@ -32,11 +26,7 @@ describe('Header - Render component', () => {
 
 describe('Header - Button click', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <Header />
-      </ThemeProvider>
-    )
+    render(<Header />)
   })
 
   test('Should call scrollToSection when buttons are clicked', async () => {
@@ -125,11 +115,7 @@ describe('Header - Active section', () => {
       return sectionMocks[id] || null
     })
 
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <Header />
-      </ThemeProvider>
-    )
+    render(<Header />)
 
     act(() => {
       mainContent.dispatchEvent(new Event('scroll'))

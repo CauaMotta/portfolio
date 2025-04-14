@@ -1,20 +1,15 @@
-import { render, screen } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
+import { render, screen } from '../../../test/setup'
 
 import Section from '.'
-
-import { darkTheme } from '../../themes'
 
 describe('Section', () => {
   beforeEach(() => {
     render(
-      <ThemeProvider theme={darkTheme}>
-        <Section id="test" title="title" description="description">
-          <div>
-            <p>child</p>
-          </div>
-        </Section>
-      </ThemeProvider>
+      <Section id="test" title="title" description="description">
+        <div>
+          <p>child</p>
+        </div>
+      </Section>
     )
   })
 

@@ -1,10 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen } from '../../../test/setup'
 import userEvent from '@testing-library/user-event'
-import { ThemeProvider } from 'styled-components'
 
 import Card from '.'
-
-import { darkTheme } from '../../themes'
 
 vi.mock('../Modal', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -30,11 +27,7 @@ const certificateMock: Certificate = {
 
 describe('Card - Project', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <Card type="project" content={projectMock} />
-      </ThemeProvider>
-    )
+    render(<Card type="project" content={projectMock} />)
   })
 
   test('Should render the project card', () => {
@@ -60,11 +53,7 @@ describe('Card - Project', () => {
 
 describe('Card - Certificate', () => {
   beforeEach(() => {
-    render(
-      <ThemeProvider theme={darkTheme}>
-        <Card type="certificate" content={certificateMock} />
-      </ThemeProvider>
-    )
+    render(<Card type="certificate" content={certificateMock} />)
   })
 
   test('Should render the certificate card', () => {
