@@ -16,7 +16,7 @@ export const Container = styled.section`
     padding-inline: 32px;
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     margin-top: 32px;
 
     .header-container {

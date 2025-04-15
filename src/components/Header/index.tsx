@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { scrollToSection, mobileBreakpoint } from '../../utils'
+import { scrollToSection, tabletBreakpoint } from '../../utils'
 
 import { Container } from './styles'
 
@@ -19,8 +19,8 @@ const Header = () => {
         if (element) {
           const rect = element.getBoundingClientRect()
 
-          const topOffset = mobileBreakpoint() ? 134 : 140
-          const bottomOffset = mobileBreakpoint() ? 100 : 100
+          const topOffset = tabletBreakpoint() ? 134 : 140
+          const bottomOffset = tabletBreakpoint() ? 100 : 100
 
           if (rect.top <= topOffset && rect.bottom >= bottomOffset) {
             currentSection = section
@@ -31,7 +31,7 @@ const Header = () => {
       setActiveSection(currentSection)
     }
 
-    if (mobileBreakpoint()) {
+    if (tabletBreakpoint()) {
       window.addEventListener('scroll', handleScroll)
       return () => window.removeEventListener('scroll', handleScroll)
     } else {
@@ -101,12 +101,12 @@ const Header = () => {
             data-testid="line"
             className={`active ${activeSection} ${menuOpen ? 'open' : ''}`}
             onClick={
-              mobileBreakpoint() ? () => setMenuOpen(!menuOpen) : () => {}
+              tabletBreakpoint() ? () => setMenuOpen(!menuOpen) : () => {}
             }
           >
-            {mobileBreakpoint() && <p>{translateSection()}</p>}
+            {tabletBreakpoint() && <p>{translateSection()}</p>}
           </div>
-          {mobileBreakpoint() && (
+          {tabletBreakpoint() && (
             <button
               className={`menuBtn ${menuOpen ? 'open' : ''}`}
               onClick={() => setMenuOpen(!menuOpen)}

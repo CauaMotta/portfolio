@@ -73,8 +73,29 @@ export const Container = styled.div<Props>`
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
+  @media (max-width: ${variables.breakpoints.desktop_sm}) {
+    .content-container {
+      .content {
+        .resume {
+          height: auto;
+        }
+      }
+    }
+  }
+
+  @media (max-width: ${variables.breakpoints.tablet}) {
+    .content-container {
+      gap: 8px;
+
+      .btn-container {
+        .certificate-link {
+          padding: 6px 12px;
+        }
+      }
+    }
+  }
+
   @media (max-width: ${variables.breakpoints.mobile}) {
-    /* padding: 16px; */
     margin-bottom: 24px;
 
     gap: 12px;
@@ -166,7 +187,7 @@ export const Grid = styled.div`
     }
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     margin-top: 0;
 
     display: flex;

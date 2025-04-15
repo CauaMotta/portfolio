@@ -140,7 +140,7 @@ export const Container = styled.section`
     transform: rotate(5deg);
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     margin-top: 32px;
     padding: 32px 24px;
 

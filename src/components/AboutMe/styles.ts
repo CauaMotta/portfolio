@@ -29,7 +29,7 @@ export const Container = styled.section`
     transform: rotate(5deg);
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     padding: 32px 24px;
 
     margin-top: 32px;

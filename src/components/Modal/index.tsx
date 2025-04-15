@@ -1,6 +1,6 @@
 import { JSX, useEffect, useRef, useState } from 'react'
 
-import { mobileBreakpoint } from '../../utils'
+import { tabletBreakpoint } from '../../utils'
 
 import { Line } from '../../styles'
 import { ModalContainer, ModalCard, Overlay } from './styles'
@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
     'touches' in e ? e.touches[0].clientY : (e as React.MouseEvent).clientY
 
   const getTranslateY = () => {
-    if (!mobileBreakpoint()) return 0
+    if (!tabletBreakpoint()) return 0
     switch (position) {
       case 'full':
         return fullOpen
@@ -84,7 +84,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
   }
 
   useEffect(() => {
-    if (mobileBreakpoint()) {
+    if (tabletBreakpoint()) {
       if (!isOpen) setPosition('closed')
       if (isOpen) {
         setPosition('half')
@@ -135,7 +135,7 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
           </button>
         </div>
         <Line />
-        {mobileBreakpoint() && (
+        {tabletBreakpoint() && (
           <div
             className="drag-icon"
             onMouseDown={handleTouchStart}

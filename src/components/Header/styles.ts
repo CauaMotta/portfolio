@@ -75,7 +75,7 @@ export const Container = styled.header`
     }
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     padding: 0 16px;
 
     top: 70px;

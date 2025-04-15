@@ -80,7 +80,7 @@ export const Container = styled.aside`
     }
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     position: sticky;
     top: 0;
     z-index: 1;

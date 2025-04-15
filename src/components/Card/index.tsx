@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTheme } from 'styled-components'
 
-import { mobileBreakpoint } from '../../utils'
+import { getBreakpoint, tabletBreakpoint } from '../../utils'
 
 import Modal from '../Modal'
 
@@ -16,6 +16,60 @@ type Props = {
 const Card = ({ type, content }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const theme = useTheme()
+  const resumeRef = useRef<HTMLParagraphElement | null>(null)
+  const [truncatedText, setTruncatedText] = useState('')
+
+  useEffect(() => {
+    const truncateToHeight = () => {
+      if (
+        getBreakpoint(window.innerWidth) === 'tablet' ||
+        getBreakpoint(window.innerWidth) === 'desktop-sm'
+      ) {
+        const element = resumeRef.current
+        const text = () => {
+          if ('resume' in content) {
+            return content.resume
+          }
+          return ''
+        }
+
+        if (!element) return
+
+        element.innerText = text()
+
+        const heightLimit =
+          getBreakpoint(window.innerWidth) === 'tablet' ? 64 : 66
+
+        if (element.offsetHeight <= heightLimit) return
+
+        let low = 0
+        let high = element.innerText.length
+        let truncated = text()
+
+        while (low < high) {
+          const mid = Math.floor((low + high) / 2)
+          element.innerText = text().slice(0, mid) + '...'
+
+          if (element.offsetHeight > heightLimit) {
+            high = mid - 1
+          } else {
+            truncated = text().slice(0, mid) + '...'
+            low = mid + 1
+          }
+        }
+
+        setTruncatedText(truncated)
+      }
+    }
+
+    truncateToHeight()
+
+    window.addEventListener('resize', truncateToHeight)
+
+    return () => {
+      window.removeEventListener('resize', truncateToHeight)
+    }
+  }, [content])
 
   if (type === 'project') {
     const project = content as Project
@@ -29,7 +83,12 @@ const Card = ({ type, content }: Props) => {
             <div className="content">
               <h3 className="title--small pi-8">{project.title}</h3>
               <Line />
-              <p className="resume text--small pi-8">{project.resume}</p>
+              <p ref={resumeRef} className="resume text--small pi-8">
+                {getBreakpoint(window.innerWidth) === 'tablet' ||
+                getBreakpoint(window.innerWidth) === 'desktop-sm'
+                  ? truncatedText
+                  : project.resume}
+              </p>
             </div>
           </div>
           <div className="btn-container">
@@ -52,7 +111,7 @@ const Card = ({ type, content }: Props) => {
               </div>
             </div>
             <div className="grid-item-2">
-              {mobileBreakpoint() && (
+              {tabletBreakpoint() && (
                 <>
                   <h2 className="title--small">{project.title}</h2>
                   <Line />

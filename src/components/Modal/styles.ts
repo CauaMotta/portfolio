@@ -16,7 +16,7 @@ export const ModalContainer = styled.div`
   top: 0;
   left: 0;
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     align-items: flex-end;
   }
 `
@@ -65,7 +65,7 @@ export const ModalCard = styled.div`
         : theme.colors.secondaryColor};
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     padding: 16px 16px 0 16px;
 
     border-radius: 16px 16px 0 0;

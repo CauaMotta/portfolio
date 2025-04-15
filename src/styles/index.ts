@@ -67,7 +67,7 @@ export const GlobalStyle = createGlobalStyle`
     margin-top: 8px;
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     * {
       scrollbar-width: none;
       scroll-margin-top: 218px;
@@ -107,7 +107,7 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: 256px auto;
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     display: flex;
     flex-direction: column;
 
@@ -141,7 +141,7 @@ export const Button = styled.button`
     color: ${({ theme }) => theme.colors.secondaryColor};
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     font-size: 14px;
     border-width: 2px;
 
@@ -170,7 +170,7 @@ export const Link = styled.a`
     border-color: ${({ theme }) => theme.colors.primaryColorDark};
   }
 
-  @media (max-width: ${variables.breakpoints.mobile}) {
+  @media (max-width: ${variables.breakpoints.tablet}) {
     font-size: 14px;
     border-width: 2px;
 
