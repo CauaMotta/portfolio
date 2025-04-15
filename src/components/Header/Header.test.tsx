@@ -8,7 +8,7 @@ import { scrollToSection } from '../../utils'
 
 vi.mock('../../utils', () => ({
   scrollToSection: vi.fn(),
-  mobileBreakpoint: vi.fn().mockReturnValue(false)
+  tabletBreakpoint: vi.fn().mockReturnValue(false)
 }))
 
 describe('Header - Render component', () => {
