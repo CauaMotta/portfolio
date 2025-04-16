@@ -39,5 +39,5 @@ npm run dev
 - Desenvolver a apresentação dos projetos ✅
 - Adicionar funcionalidades extras (como light mode) ✅
 - Adicionar testes unitários ✅
-- Implementar responsividade
-- Publicar o projeto
+- Implementar responsividade ✅
+- Publicar o projeto ✅
