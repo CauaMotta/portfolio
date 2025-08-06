@@ -5,6 +5,7 @@ declare type Project = {
   linkRepo: string
   published: boolean
   linkDeploy?: string
+  detach: boolean
   technologies: string[]
 }
 

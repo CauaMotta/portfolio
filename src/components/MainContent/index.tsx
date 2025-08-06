@@ -38,9 +38,12 @@ const MainContent = () => {
           description="Esta seção tem o objetivo de mostrar os meus principais projetos"
         >
           <>
-            {projects.map((project) => (
-              <Card key={project.title} content={project} type="project" />
-            ))}
+            {projects
+              .filter((project) => project.detach)
+              .slice(0, 3)
+              .map((project) => (
+                <Card key={project.title} content={project} type="project" />
+              ))}
           </>
         </Section>
         <Section

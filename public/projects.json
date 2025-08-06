@@ -5,6 +5,7 @@
     "resume": "Portfólio autoral em React, do design ao código. Moderno, funcional e com personalidade — minha vitrine criativa para o mundo dev. Desenvolvido com Vite e Styled Components, exibindo projetos, habilidades e experiências.",
     "linkRepo": "https://github.com/CauaMotta/portfolio",
     "published": false,
+    "detach": true,
     "technologies": [
       "⚡ Vite",
       "💙 TypeScript",
@@ -45,6 +46,7 @@
     "linkRepo": "https://github.com/CauaMotta/contact_list_v2",
     "published": true,
     "linkDeploy": "https://cauamotta-contact-list.vercel.app/",
+    "detach": true,
     "technologies": [
       "⚡ Vite",
       "💙 TypeScript",
@@ -62,6 +64,7 @@
     "linkRepo": "https://github.com/CauaMotta/iphone_calculator",
     "published": true,
     "linkDeploy": "https://cauamotta-iphone-calculator.vercel.app/",
+    "detach": true,
     "technologies": ["⚡ Vite", "🧡 JavaScript", "💚 VueJS"]
   },
   {
@@ -143,6 +146,7 @@
     "linkRepo": "https://github.com/CauaMotta/task_list",
     "published": true,
     "linkDeploy": "https://cauamotta-task-list.vercel.app/",
+    "detach": true,
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },
   {
@@ -152,6 +156,7 @@
     "linkRepo": "https://github.com/CauaMotta/contact_list_v1",
     "published": true,
     "linkDeploy": "https://cauamotta-contact-list-v1.vercel.app/",
+    "detach": true,
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },
   {

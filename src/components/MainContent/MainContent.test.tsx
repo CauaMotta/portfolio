@@ -27,7 +27,7 @@ vi.mock('../Footer', () => ({
 }))
 
 describe('MainContent', () => {
-  const mockProjects = [{ id: 1, title: 'Projeto 1' }]
+  const mockProjects = [{ id: 1, title: 'Projeto 1', detach: true }]
   const mockCertificates = [{ id: 2, title: 'Certificado 1' }]
 
   beforeEach(() => {

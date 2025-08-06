@@ -15,6 +15,7 @@ const projectMock: Project = {
   image: 'test.png',
   linkRepo: 'https://github.com/test',
   published: false,
+  detach: true,
   technologies: ['React', 'Typescript']
 }
 
