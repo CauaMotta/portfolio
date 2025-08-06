@@ -41,3 +41,9 @@ npm run dev
 - Adicionar testes unitários ✅
 - Implementar responsividade ✅
 - Publicar o projeto ✅
+
+## 🧩 Novas funcionalidades da branch `feature/my-projects`
+
+- Limitar a página inicial com os 5 projetos mais relevantes
+- Adicionar filtros para separar entre back e front-end
+- Expor todos os projetos em uma página dedicada
