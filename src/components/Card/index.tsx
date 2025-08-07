@@ -2,11 +2,11 @@ import { useState, useRef, useEffect } from 'react'
 import { useTheme } from 'styled-components'
 
 import { getBreakpoint, tabletBreakpoint } from '../../utils'
-
 import Modal from '../Modal'
 
 import { Button, Line, Link } from '../../styles'
 import { Container, Grid, Image } from './styles'
+import { Certificate, Project } from '../../types'
 
 type Props = {
   type: 'project' | 'certificate'

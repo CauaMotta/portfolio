@@ -1,11 +1,30 @@
 [
   {
+    "image": "/assets/sales-system.png",
+    "title": "Sales System",
+    "resume": "Projeto desenvolvido no curso da EBAC: sistema de vendas monolito em Java, com JSF e PrimeFaces. Integra cadastro de clientes, produtos e vendas, usando Maven, Hibernate e PostgreSQL na persistência.",
+    "linkRepo": "https://github.com/CauaMotta/sales-system",
+    "published": false,
+    "detach": true,
+    "type": "B",
+    "technologies": [
+      "☕ Java",
+      "📦 Maven",
+      "🧪 JUnit",
+      "🌐 Jakarta Faces",
+      "🛠️ Hibernate",
+      "🐘 PostgreSQL",
+      "🎨 PrimeFaces"
+    ]
+  },
+  {
     "image": "/assets/my-portfolio.png",
     "title": "Meu Portfólio",
     "resume": "Portfólio autoral em React, do design ao código. Moderno, funcional e com personalidade — minha vitrine criativa para o mundo dev. Desenvolvido com Vite e Styled Components, exibindo projetos, habilidades e experiências.",
     "linkRepo": "https://github.com/CauaMotta/portfolio",
     "published": false,
     "detach": true,
+    "type": "F",
     "technologies": [
       "⚡ Vite",
       "💙 TypeScript",
@@ -26,6 +45,7 @@
     "linkRepo": "https://github.com/CauaMotta/efood_project",
     "published": true,
     "linkDeploy": "https://cauamotta-efood-project.vercel.app/",
+    "type": "F",
     "technologies": [
       "⚡ Vite",
       "💙 TypeScript",
@@ -47,6 +67,7 @@
     "published": true,
     "linkDeploy": "https://cauamotta-contact-list.vercel.app/",
     "detach": true,
+    "type": "F",
     "technologies": [
       "⚡ Vite",
       "💙 TypeScript",
@@ -65,6 +86,7 @@
     "published": true,
     "linkDeploy": "https://cauamotta-iphone-calculator.vercel.app/",
     "detach": true,
+    "type": "F",
     "technologies": ["⚡ Vite", "🧡 JavaScript", "💚 VueJS"]
   },
   {
@@ -74,6 +96,7 @@
     "linkRepo": "https://github.com/CauaMotta/landingpage_deadpool_e_wolverine",
     "published": true,
     "linkDeploy": "https://cauamotta-deadpool-e-wolverine.vercel.app/",
+    "type": "F",
     "technologies": [
       "🌐 HTML",
       "🎨 CSS",
@@ -90,6 +113,7 @@
     "resume": "Template de e-mail com HTML (projeto EBAC). Desenvolvido com CSS inline seguindo boas práticas de compatibilidade entre clients de e-mail. Design simplificado e adaptável.",
     "linkRepo": "https://github.com/CauaMotta/email_com_html",
     "published": false,
+    "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS"]
   },
   {
@@ -99,6 +123,7 @@
     "linkRepo": "https://github.com/CauaMotta/sorteador",
     "published": true,
     "linkDeploy": "https://cauamotta-sorteador.vercel.app/",
+    "type": "F",
     "technologies": [
       "🌐 HTML",
       "🎨 CSS",
@@ -114,6 +139,7 @@
     "linkRepo": "https://github.com/CauaMotta/happy_food",
     "published": true,
     "linkDeploy": "https://cauamotta-happy-food.vercel.app/",
+    "type": "F",
     "technologies": [
       "🌐 HTML",
       "🎨 CSS",
@@ -129,6 +155,7 @@
     "linkRepo": "https://github.com/CauaMotta/virtual_library",
     "published": true,
     "linkDeploy": "https://cauamotta-virtual-library.vercel.app/",
+    "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS", "🅱️ Bootstrap", "⭐ Font Awesome"]
   },
   {
@@ -137,6 +164,7 @@
     "resume": "Landing Page com tema do filme Carros (projeto EBAC). Projeto desenvolvido para exercitar o domínio de media queries, flexbox e unidades relativas para adaptação perfeita em todos os dispositivos.",
     "linkRepo": "https://github.com/CauaMotta/landingpage_powerdrive",
     "published": false,
+    "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },
   {
@@ -147,6 +175,7 @@
     "published": true,
     "linkDeploy": "https://cauamotta-task-list.vercel.app/",
     "detach": true,
+    "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },
   {
@@ -157,6 +186,7 @@
     "published": true,
     "linkDeploy": "https://cauamotta-contact-list-v1.vercel.app/",
     "detach": true,
+    "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },
   {
@@ -166,6 +196,7 @@
     "linkRepo": "https://github.com/CauaMotta/landingpage_rocknshop",
     "published": true,
     "linkDeploy": "https://cauamotta-landingpage-rocknshop.vercel.app/",
+    "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS"]
   }
 ]

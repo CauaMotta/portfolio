@@ -22,3 +22,8 @@ export const getBreakpoint = (width: number) => {
     return 'desktop-sm'
   return 'desktop'
 }
+
+export enum ProjectType {
+  BACKEND = 'B',
+  FRONTEND = 'F'
+}
