@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Header from '../Header'
 import AboutMe from '../AboutMe'
@@ -6,15 +7,18 @@ import Card from '../Card'
 import Contact from '../Contact'
 import Section from '../Section'
 import Footer from '../Footer'
-import { Certificate, Project } from '../../types'
 
-import { Container, FilterBtn } from './styles'
+import { Certificate, Project } from '../../types'
 import { ProjectType } from '../../utils'
+
+import { Container, NavButton } from './styles'
+import { FilterBtn } from '../../styles'
 
 const MainContent = () => {
   const [projects, setProjects] = useState<Project[]>([])
   const [certificates, setCertificates] = useState<Certificate[]>([])
   const [filter, setFilter] = useState<string>('')
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/projects.json')
@@ -47,7 +51,7 @@ const MainContent = () => {
           description="Esta seção tem o objetivo de mostrar os meus principais projetos"
         >
           <>
-            <div className="btnGroup">
+            <div data-testid="filters" className="btnGroup">
               <FilterBtn
                 onClick={() => setFilter('')}
                 className={`${filter === '' ? 'active' : ''}`}
@@ -56,13 +60,13 @@ const MainContent = () => {
               </FilterBtn>
               <FilterBtn
                 onClick={() => setFilter(ProjectType.FRONTEND)}
-                className={`${filter === 'F' ? 'active' : ''}`}
+                className={`${filter === ProjectType.FRONTEND ? 'active' : ''}`}
               >
                 Front-end
               </FilterBtn>
               <FilterBtn
                 onClick={() => setFilter(ProjectType.BACKEND)}
-                className={`${filter === 'B' ? 'active' : ''}`}
+                className={`${filter === ProjectType.BACKEND ? 'active' : ''}`}
               >
                 Back-end
               </FilterBtn>
@@ -75,6 +79,9 @@ const MainContent = () => {
               .map((project) => (
                 <Card key={project.title} content={project} type="project" />
               ))}
+            <NavButton onClick={() => navigate('/projects')}>
+              Ver todos os projetos <i className="fa-solid fa-arrow-right"></i>
+            </NavButton>
           </>
         </Section>
         <Section

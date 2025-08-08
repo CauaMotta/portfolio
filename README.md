@@ -14,6 +14,7 @@ Este é meu projeto de portfólio pessoal, desenvolvido em **React** com **Vite*
 - 🔄 [React Spinners](https://www.davidhu.io/react-spinners/) - Componentes de carregamento estilizados para React
 - 🧪 [Vitest](https://vitest.dev/) - Testes unitários rápidos e eficientes para projetos com Vite
 - 🧩 [Testing Library](https://testing-library.com/) - Conjunto de ferramentas para testes acessíveis e eficazes
+- 🧭 [React Router DOM](https://reactrouter.com/) - Navegação entre páginas com rotas dinâmicas no React
 
 ## 📦 Instalação e Execução
 
@@ -45,5 +46,6 @@ npm run dev
 ## 🧩 Novas funcionalidades da branch `feature/my-projects`
 
 - Limitar a página inicial com os 3 projetos mais relevantes ✅
-- Adicionar filtros para separar entre back e front-end
-- Expor todos os projetos em uma página dedicada
+- Adicionar filtros para separar entre back e front-end ✅
+- Expor todos os projetos em uma página dedicada ✅
+- Ajustes finais

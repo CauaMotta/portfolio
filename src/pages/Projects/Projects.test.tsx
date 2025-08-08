@@ -1,54 +1,37 @@
 import { act, render, screen, within } from '../../../test/setup'
 import { vi } from 'vitest'
 
-import MainContent from '.'
-import userEvent from '@testing-library/user-event'
-import { ProjectType } from '../../utils'
+import Projects from '.'
 
-vi.mock('../Header', () => ({
-  default: () => <div data-testid="Header" />
-}))
-vi.mock('../AboutMe', () => ({
-  default: () => <div data-testid="AboutMe" />
-}))
-vi.mock('../Section', () => ({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  default: ({ title, children }: any) => (
-    <div data-testid={`Section-${title}`}>{children}</div>
-  )
-}))
-vi.mock('../Card', () => ({
+import { ProjectType } from '../../utils'
+import userEvent from '@testing-library/user-event'
+
+const mockNavigate = vi.fn()
+
+vi.mock('../../components/Card', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: ({ content }: any) => <div data-testid={`Card-${content.id}`} />
 }))
-vi.mock('../Contact', () => ({
-  default: () => <div data-testid="Contact" />
-}))
-vi.mock('../Footer', () => ({
+vi.mock('../../components/Footer', () => ({
   default: () => <div data-testid="Footer" />
 }))
 vi.mock('react-router-dom', () => ({
-  useNavigate: vi.fn()
+  useNavigate: () => mockNavigate
 }))
 
-describe('MainContent', () => {
+describe('Projects', () => {
   const mockProjects = [
     { id: 1, title: 'Projeto 1', detach: true, type: ProjectType.FRONTEND },
-    { id: 2, title: 'Projeto 2', detach: true, type: ProjectType.BACKEND },
-    { id: 3, title: 'Projeto 3', detach: true, type: ProjectType.BACKEND }
+    { id: 2, title: 'Projeto 2', detach: true, type: ProjectType.FRONTEND },
+    { id: 3, title: 'Projeto 3', detach: true, type: ProjectType.BACKEND },
+    { id: 4, title: 'Projeto 4', detach: true, type: ProjectType.BACKEND }
   ]
-  const mockCertificates = [{ id: 4, title: 'Certificado 1' }]
 
   beforeEach(() => {
     global.fetch = vi.fn((url: RequestInfo) => {
       if (url === '/projects.json') {
         return Promise.resolve({
           json: () => Promise.resolve(mockProjects)
-        } as Response)
-      }
-      if (url === '/certificates.json') {
-        return Promise.resolve({
-          json: () => Promise.resolve(mockCertificates)
         } as Response)
       }
       return Promise.reject(new Error('Unknown URL'))
@@ -61,22 +44,20 @@ describe('MainContent', () => {
 
   test('Should render the component and data', async () => {
     await act(async () => {
-      render(<MainContent />)
+      render(<Projects />)
     })
 
-    expect(screen.getByTestId('Header')).toBeInTheDocument()
-    expect(screen.getByTestId('AboutMe')).toBeInTheDocument()
-    expect(screen.getByTestId('Contact')).toBeInTheDocument()
-    expect(screen.getByTestId('Footer')).toBeInTheDocument()
+    expect(screen.getByText('Todos os Projetos')).toBeInTheDocument()
     expect(screen.getByTestId('Card-1')).toBeInTheDocument()
     expect(screen.getByTestId('Card-2')).toBeInTheDocument()
     expect(screen.getByTestId('Card-3')).toBeInTheDocument()
     expect(screen.getByTestId('Card-4')).toBeInTheDocument()
+    expect(screen.getByTestId('Footer')).toBeInTheDocument()
   })
 
   test('Should filter projects when clicking filter buttons', async () => {
     await act(async () => {
-      render(<MainContent />)
+      render(<Projects />)
     })
 
     const filters = screen.getByTestId('filters')
@@ -92,13 +73,31 @@ describe('MainContent', () => {
     expect(btnFrontend).toBeInTheDocument()
     expect(btnBackend).toBeInTheDocument()
 
-    await userEvent.click(btnBackend)
+    await userEvent.click(btnFrontend)
 
-    expect(btnBackend.classList.contains('active')).toBe(true)
+    expect(btnFrontend.classList.contains('active')).toBe(true)
+    expect(btnBackend.classList.contains('active')).toBe(false)
     expect(btnAll.classList.contains('active')).toBe(false)
 
-    expect(screen.queryByTestId('Card-1')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('Card-1')).toBeInTheDocument()
     expect(screen.getByTestId('Card-2')).toBeInTheDocument()
-    expect(screen.getByTestId('Card-3')).toBeInTheDocument()
+    expect(screen.queryByTestId('Card-3')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('Card-4')).not.toBeInTheDocument()
+  })
+
+  test('Should return to the home page when clicking the button', async () => {
+    await act(async () => {
+      render(<Projects />)
+    })
+
+    const btnHome = screen.getByRole('button', {
+      name: /Voltar para a página inicial/i
+    })
+
+    expect(btnHome).toBeInTheDocument()
+
+    await userEvent.click(btnHome)
+
+    expect(mockNavigate).toHaveBeenCalledWith('/')
   })
 })

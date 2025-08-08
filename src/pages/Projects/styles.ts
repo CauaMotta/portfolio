@@ -3,11 +3,16 @@ import variables from '../../styles/variables'
 
 export const Container = styled.div`
   padding: 0 16px;
-
   overflow-y: scroll;
 
+  .title {
+    text-align: center;
+
+    margin-block: 16px;
+  }
+
   .btnGroup {
-    margin-top: -16px;
+    margin-top: 16px;
     margin-bottom: 32px;
 
     display: flex;
@@ -17,34 +22,39 @@ export const Container = styled.div`
   @media (max-width: ${variables.breakpoints.tablet}) {
     overflow-y: visible;
 
+    .title {
+      margin-block: 12px;
+    }
+
     .btnGroup {
-      margin-top: -12px;
+      margin-top: 14px;
       margin-bottom: 24px;
     }
   }
 `
 
 export const NavButton = styled.button`
-  width: 100%;
-  padding: 20px 0;
+  margin-top: 40px;
+  padding: 16px 0;
 
   color: ${({ theme }) => theme.colors.fontColorSecondary};
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 
-  background-color: ${({ theme }) => theme.colors.secondaryColor};
-  border: 3px solid ${({ theme }) => theme.colors.secondaryColor};
-  border-radius: 16px;
+  background-color: transparent;
+  border: none;
 
   cursor: pointer;
 
   &:hover {
     color: ${({ theme }) => theme.colors.primaryColor};
-
-    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: ${variables.breakpoints.tablet}) {
-    font-size: 16px;
+    margin: 0;
+
+    padding: 14px 0;
+
+    font-size: 14px;
   }
 `

@@ -168,9 +168,14 @@ export const Grid = styled.div`
         grid-template-columns: 1fr;
 
         &:has(li:nth-child(6)) {
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: repeat(5, 24px);
           grid-auto-flow: column;
+          grid-template-rows: repeat(5, 24px);
+          grid-template-columns: 1fr 1fr;
+        }
+
+        &:has(li:nth-child(11)) {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-flow: row;
         }
 
         li {
