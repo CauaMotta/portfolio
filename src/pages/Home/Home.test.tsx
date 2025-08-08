@@ -1,37 +1,40 @@
+import userEvent from '@testing-library/user-event'
 import { act, render, screen, within } from '../../../test/setup'
 import { vi } from 'vitest'
 
-import MainContent from '.'
-import userEvent from '@testing-library/user-event'
+import Home from '.'
+
 import { ProjectType } from '../../utils'
 
-vi.mock('../Header', () => ({
+const mockNavigate = vi.fn()
+
+vi.mock('../../components/Header', () => ({
   default: () => <div data-testid="Header" />
 }))
-vi.mock('../AboutMe', () => ({
+vi.mock('../../components/AboutMe', () => ({
   default: () => <div data-testid="AboutMe" />
 }))
-vi.mock('../Section', () => ({
+vi.mock('../../components/Section', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: ({ title, children }: any) => (
     <div data-testid={`Section-${title}`}>{children}</div>
   )
 }))
-vi.mock('../Card', () => ({
+vi.mock('../../components/Card', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: ({ content }: any) => <div data-testid={`Card-${content.id}`} />
 }))
-vi.mock('../Contact', () => ({
+vi.mock('../../components/Contact', () => ({
   default: () => <div data-testid="Contact" />
 }))
-vi.mock('../Footer', () => ({
+vi.mock('../../components/Footer', () => ({
   default: () => <div data-testid="Footer" />
 }))
 vi.mock('react-router-dom', () => ({
-  useNavigate: vi.fn()
+  useNavigate: () => mockNavigate
 }))
 
-describe('MainContent', () => {
+describe('Home', () => {
   const mockProjects = [
     { id: 1, title: 'Projeto 1', detach: true, type: ProjectType.FRONTEND },
     { id: 2, title: 'Projeto 2', detach: true, type: ProjectType.BACKEND },
@@ -61,7 +64,7 @@ describe('MainContent', () => {
 
   test('Should render the component and data', async () => {
     await act(async () => {
-      render(<MainContent />)
+      render(<Home />)
     })
 
     expect(screen.getByTestId('Header')).toBeInTheDocument()
@@ -76,7 +79,7 @@ describe('MainContent', () => {
 
   test('Should filter projects when clicking filter buttons', async () => {
     await act(async () => {
-      render(<MainContent />)
+      render(<Home />)
     })
 
     const filters = screen.getByTestId('filters')
@@ -100,5 +103,21 @@ describe('MainContent', () => {
     expect(screen.queryByTestId('Card-1')).not.toBeInTheDocument()
     expect(screen.getByTestId('Card-2')).toBeInTheDocument()
     expect(screen.getByTestId('Card-3')).toBeInTheDocument()
+  })
+
+  test('Should redirect to the projects page', async () => {
+    await act(async () => {
+      render(<Home />)
+    })
+
+    const btnHome = screen.getByRole('button', {
+      name: /Ver todos os projetos/i
+    })
+
+    expect(btnHome).toBeInTheDocument()
+
+    await userEvent.click(btnHome)
+
+    expect(mockNavigate).toHaveBeenCalledWith('/projects')
   })
 })
