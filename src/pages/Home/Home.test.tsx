@@ -5,8 +5,17 @@ import { vi } from 'vitest'
 import Home from '.'
 
 import { ProjectType } from '../../utils'
+import { useFetchData } from '../../hooks'
 
 const mockNavigate = vi.fn()
+const mockProjects = [
+  { id: 1, title: 'Projeto 1', detach: true, type: ProjectType.FRONTEND },
+  { id: 2, title: 'Projeto 2', detach: true, type: ProjectType.BACKEND },
+  { id: 3, title: 'Projeto 3', detach: true, type: ProjectType.BACKEND }
+]
+const mockCertificates = [{ id: 4, title: 'Certificado 1' }]
+const mockProjectsError = 'Erro ao carregar os projetos'
+const mockCertificatesError = 'Erro ao carregar os certificados'
 
 vi.mock('../../components/Header', () => ({
   default: () => <div data-testid="Header" />
@@ -33,29 +42,21 @@ vi.mock('../../components/Footer', () => ({
 vi.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate
 }))
+vi.mock('../../hooks', () => ({
+  useFetchData: vi.fn()
+}))
 
 describe('Home', () => {
-  const mockProjects = [
-    { id: 1, title: 'Projeto 1', detach: true, type: ProjectType.FRONTEND },
-    { id: 2, title: 'Projeto 2', detach: true, type: ProjectType.BACKEND },
-    { id: 3, title: 'Projeto 3', detach: true, type: ProjectType.BACKEND }
-  ]
-  const mockCertificates = [{ id: 4, title: 'Certificado 1' }]
-
   beforeEach(() => {
-    global.fetch = vi.fn((url: RequestInfo) => {
-      if (url === '/projects.json') {
-        return Promise.resolve({
-          json: () => Promise.resolve(mockProjects)
-        } as Response)
+    vi.mocked(useFetchData).mockImplementation((resource: string) => {
+      if (resource === 'projects') {
+        return { data: mockProjects, loading: false, error: null }
       }
-      if (url === '/certificates.json') {
-        return Promise.resolve({
-          json: () => Promise.resolve(mockCertificates)
-        } as Response)
+      if (resource === 'certificates') {
+        return { data: mockCertificates, loading: false, error: null }
       }
-      return Promise.reject(new Error('Unknown URL'))
-    }) as typeof fetch
+      return { data: [], loading: false, error: null }
+    })
   })
 
   afterEach(() => {
@@ -71,6 +72,7 @@ describe('Home', () => {
     expect(screen.getByTestId('AboutMe')).toBeInTheDocument()
     expect(screen.getByTestId('Contact')).toBeInTheDocument()
     expect(screen.getByTestId('Footer')).toBeInTheDocument()
+
     expect(screen.getByTestId('Card-1')).toBeInTheDocument()
     expect(screen.getByTestId('Card-2')).toBeInTheDocument()
     expect(screen.getByTestId('Card-3')).toBeInTheDocument()
@@ -119,5 +121,61 @@ describe('Home', () => {
     await userEvent.click(btnHome)
 
     expect(mockNavigate).toHaveBeenCalledWith('/projects')
+  })
+})
+
+describe('Home - Error', () => {
+  beforeEach(() => {
+    vi.mocked(useFetchData).mockImplementation((resource: string) => {
+      if (resource === 'projects') {
+        return {
+          data: [],
+          loading: false,
+          error: mockProjectsError
+        }
+      }
+      if (resource === 'certificates') {
+        return {
+          data: [],
+          loading: false,
+          error: mockCertificatesError
+        }
+      }
+      return { data: [], loading: false, error: null }
+    })
+  })
+
+  afterEach(() => {
+    vi.resetAllMocks()
+  })
+
+  test('Should render error message when projects fail to load', async () => {
+    await act(async () => {
+      render(<Home />)
+    })
+
+    expect(screen.getByTestId('Header')).toBeInTheDocument()
+    expect(screen.getByTestId('AboutMe')).toBeInTheDocument()
+    expect(screen.getByTestId('Contact')).toBeInTheDocument()
+    expect(screen.getByTestId('Footer')).toBeInTheDocument()
+
+    expect(
+      screen.getByText(/Ops! Houve um erro ao carregar os projetos.../i)
+    ).toBeInTheDocument()
+  })
+
+  test('Should render error message when certificates fail to load', async () => {
+    await act(async () => {
+      render(<Home />)
+    })
+
+    expect(screen.getByTestId('Header')).toBeInTheDocument()
+    expect(screen.getByTestId('AboutMe')).toBeInTheDocument()
+    expect(screen.getByTestId('Contact')).toBeInTheDocument()
+    expect(screen.getByTestId('Footer')).toBeInTheDocument()
+
+    expect(
+      screen.getByText(/Ops! Houve um erro ao carregar os certificados.../i)
+    ).toBeInTheDocument()
   })
 })

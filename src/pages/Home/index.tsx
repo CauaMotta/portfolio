@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useTheme } from 'styled-components'
 
 import Header from '../../components/Header'
 import AboutMe from '../../components/AboutMe'
@@ -9,40 +10,32 @@ import Section from '../../components/Section'
 import Footer from '../../components/Footer'
 
 import { Certificate, Project } from '../../types'
-import { getBreakpoint, ProjectType } from '../../utils'
+import { useFetchData } from '../../hooks'
+import { filterValidate, getBreakpoint, ProjectType } from '../../utils'
 
 import { Container, NavButton } from './styles'
-import { FilterBtn } from '../../styles'
+import { FilterBtn, StyledClipLoader } from '../../styles'
 
 const Home = () => {
+  const {
+    data: projects,
+    loading: projectsLoading,
+    error: projectsError
+  } = useFetchData<Project>('projects')
+  const {
+    data: certificates,
+    loading: certificatesLoading,
+    error: certificatesError
+  } = useFetchData<Certificate>('certificates')
   const [breakpoint, setBreakpoint] = useState(() =>
     getBreakpoint(window.innerWidth)
   )
   const [mainKey, setMainKey] = useState(0)
-  const [projects, setProjects] = useState<Project[]>([])
-  const [certificates, setCertificates] = useState<Certificate[]>([])
   const [filter, setFilter] = useState<string>('')
+  const theme = useTheme()
   const navigate = useNavigate()
 
-  const filterValidate = (type: ProjectType) => {
-    if (filter === '') return true
-    if (type === filter) return true
-    return false
-  }
-
   useEffect(() => {
-    fetch('/projects.json')
-      .then((response) => response.json())
-      .then((data) => setProjects(data))
-      .catch((error) => console.error('Erro ao carregar projetos:', error))
-
-    fetch('/certificates.json')
-      .then((response) => response.json())
-      .then((data) => setCertificates(data))
-      .catch((error) =>
-        console.error('Erro ao carregar os certificados:', error)
-      )
-
     const handleResize = () => {
       const newBreakpoint = getBreakpoint(window.innerWidth)
 
@@ -70,37 +63,60 @@ const Home = () => {
           description="Esta seção tem o objetivo de mostrar os meus principais projetos"
         >
           <>
-            <div data-testid="filters" className="btnGroup">
-              <FilterBtn
-                onClick={() => setFilter('')}
-                className={`${filter === '' ? 'active' : ''}`}
-              >
-                Todos
-              </FilterBtn>
-              <FilterBtn
-                onClick={() => setFilter(ProjectType.FRONTEND)}
-                className={`${filter === ProjectType.FRONTEND ? 'active' : ''}`}
-              >
-                Front-end
-              </FilterBtn>
-              <FilterBtn
-                onClick={() => setFilter(ProjectType.BACKEND)}
-                className={`${filter === ProjectType.BACKEND ? 'active' : ''}`}
-              >
-                Back-end
-              </FilterBtn>
-            </div>
+            {!projectsLoading && !projectsError && (
+              <div data-testid="filters" className="btnGroup">
+                <FilterBtn
+                  onClick={() => setFilter('')}
+                  className={`${filter === '' ? 'active' : ''}`}
+                >
+                  Todos
+                </FilterBtn>
+                <FilterBtn
+                  onClick={() => setFilter(ProjectType.FRONTEND)}
+                  className={`${
+                    filter === ProjectType.FRONTEND ? 'active' : ''
+                  }`}
+                >
+                  Front-end
+                </FilterBtn>
+                <FilterBtn
+                  onClick={() => setFilter(ProjectType.BACKEND)}
+                  className={`${
+                    filter === ProjectType.BACKEND ? 'active' : ''
+                  }`}
+                >
+                  Back-end
+                </FilterBtn>
+              </div>
+            )}
+            {projectsLoading && (
+              <div className="containerIsLoading">
+                <StyledClipLoader color={theme.colors.primaryColor} />
+              </div>
+            )}
+            {projectsError && (
+              <div className="containerIsError">
+                <i className="fa-solid fa-file-circle-xmark"></i>
+                <p className="text">
+                  Ops! Houve um erro ao carregar os projetos...
+                </p>
+              </div>
+            )}
             {projects
               .filter(
-                (project) => project.detach && filterValidate(project.type)
+                (project) =>
+                  project.detach && filterValidate(filter, project.type)
               )
               .slice(0, 3)
               .map((project) => (
                 <Card key={project.title} content={project} type="project" />
               ))}
-            <NavButton onClick={() => navigate('/projects')}>
-              Ver todos os projetos <i className="fa-solid fa-arrow-right"></i>
-            </NavButton>
+            {!projectsLoading && !projectsError && (
+              <NavButton onClick={() => navigate('/projects')}>
+                Ver todos os projetos{' '}
+                <i className="fa-solid fa-arrow-right"></i>
+              </NavButton>
+            )}
           </>
         </Section>
         <Section
@@ -109,6 +125,19 @@ const Home = () => {
           description="Esta seção tem o objetivo de mostrar todos os meus certificados"
         >
           <>
+            {certificatesLoading && (
+              <div className="containerIsLoading">
+                <StyledClipLoader color={theme.colors.primaryColor} />
+              </div>
+            )}
+            {certificatesError && (
+              <div className="containerIsError">
+                <i className="fa-solid fa-file-circle-xmark"></i>
+                <p className="text">
+                  Ops! Houve um erro ao carregar os certificados...
+                </p>
+              </div>
+            )}
             {certificates.map((certificate) => (
               <Card
                 key={certificate.title}

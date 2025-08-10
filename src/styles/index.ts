@@ -1,4 +1,6 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, keyframes } from 'styled-components'
+import { ClipLoader } from 'react-spinners'
+
 import variables from './variables'
 
 export const GlobalStyle = createGlobalStyle`
@@ -67,6 +69,27 @@ export const GlobalStyle = createGlobalStyle`
     margin-top: 8px;
   }
 
+  .containerIsLoading {
+    display: flex;
+    justify-content: center;
+
+    margin-block: 32px;
+  }
+
+  .containerIsError {
+    margin-top: 32px;
+
+    text-align: center;
+    font-size: 18px;
+
+    i {
+      color: ${({ theme }) => theme.colors.fontColorSecondary};
+      font-size: 32px;
+
+      margin-bottom: 8px;
+    }
+  }
+
   @media (max-width: ${variables.breakpoints.tablet}) {
     * {
       scrollbar-width: none;
@@ -96,6 +119,14 @@ export const GlobalStyle = createGlobalStyle`
         line-height: 16px;
       }
     }
+
+    .containerIsError {
+    i {
+      font-size: 24px;
+
+      margin-bottom: 6px;
+    }
+  }
   }
 `
 
@@ -212,4 +243,15 @@ export const FilterBtn = styled.button`
   @media (max-width: ${variables.breakpoints.tablet}) {
     font-size: 14px;
   }
+`
+
+const spin = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+export const StyledClipLoader = styled(ClipLoader)`
+  border-width: 4px !important;
+  animation: ${spin} 1s 0s linear infinite !important;
 `

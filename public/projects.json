@@ -6,7 +6,7 @@
     "linkRepo": "https://github.com/CauaMotta/sales-system",
     "published": false,
     "detach": true,
-    "type": "B",
+    "type": "A",
     "technologies": [
       "☕ Java",
       "📦 Maven",

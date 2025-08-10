@@ -48,4 +48,4 @@ npm run dev
 - Limitar a página inicial com os 3 projetos mais relevantes ✅
 - Adicionar filtros para separar entre back e front-end ✅
 - Expor todos os projetos em uma página dedicada ✅
-- Ajustes finais
+- Ajustes finais ✅

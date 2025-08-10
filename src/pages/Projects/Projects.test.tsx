@@ -1,12 +1,20 @@
 import { act, render, screen, within } from '../../../test/setup'
+import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
 
 import Projects from '.'
 
+import { useFetchData } from '../../hooks'
 import { ProjectType } from '../../utils'
-import userEvent from '@testing-library/user-event'
 
 const mockNavigate = vi.fn()
+const mockProjects = [
+  { id: 1, title: 'Projeto 1', type: ProjectType.FRONTEND },
+  { id: 2, title: 'Projeto 2', type: ProjectType.FRONTEND },
+  { id: 3, title: 'Projeto 3', type: ProjectType.BACKEND },
+  { id: 4, title: 'Projeto 4', type: ProjectType.BACKEND }
+]
+const mockProjectsError = 'Erro ao carregar os projetos'
 
 vi.mock('../../components/Card', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,24 +26,18 @@ vi.mock('../../components/Footer', () => ({
 vi.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate
 }))
+vi.mock('../../hooks', () => ({
+  useFetchData: vi.fn()
+}))
 
 describe('Projects', () => {
-  const mockProjects = [
-    { id: 1, title: 'Projeto 1', detach: true, type: ProjectType.FRONTEND },
-    { id: 2, title: 'Projeto 2', detach: true, type: ProjectType.FRONTEND },
-    { id: 3, title: 'Projeto 3', detach: true, type: ProjectType.BACKEND },
-    { id: 4, title: 'Projeto 4', detach: true, type: ProjectType.BACKEND }
-  ]
-
   beforeEach(() => {
-    global.fetch = vi.fn((url: RequestInfo) => {
-      if (url === '/projects.json') {
-        return Promise.resolve({
-          json: () => Promise.resolve(mockProjects)
-        } as Response)
+    vi.mocked(useFetchData).mockImplementation((resource: string) => {
+      if (resource === 'projects') {
+        return { data: mockProjects, loading: false, error: null }
       }
-      return Promise.reject(new Error('Unknown URL'))
-    }) as typeof fetch
+      return { data: [], loading: false, error: null }
+    })
   })
 
   afterEach(() => {
@@ -99,5 +101,36 @@ describe('Projects', () => {
     await userEvent.click(btnHome)
 
     expect(mockNavigate).toHaveBeenCalledWith('/')
+  })
+})
+
+describe('Projects - Error', () => {
+  beforeEach(() => {
+    vi.mocked(useFetchData).mockImplementation((resource: string) => {
+      if (resource === 'projects') {
+        return {
+          data: [],
+          loading: false,
+          error: mockProjectsError
+        }
+      }
+      return { data: [], loading: false, error: null }
+    })
+  })
+
+  afterEach(() => {
+    vi.resetAllMocks()
+  })
+
+  test('Should render error message when projects fail to load', async () => {
+    await act(async () => {
+      render(<Projects />)
+    })
+
+    expect(screen.getByText('Todos os Projetos')).toBeInTheDocument()
+    expect(
+      screen.getByText(/Ops! Houve um erro ao carregar os projetos.../i)
+    ).toBeInTheDocument()
+    expect(screen.getByTestId('Footer')).toBeInTheDocument()
   })
 })

@@ -8,7 +8,7 @@ declare type Project = {
   published: boolean
   linkDeploy?: string
   detach?: boolean
-  type: ProjectType.BACKEND | ProjectType.FRONTEND
+  type: ProjectType
   technologies: string[]
 }
 
