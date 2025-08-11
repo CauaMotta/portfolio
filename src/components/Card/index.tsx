@@ -1,12 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import { useTheme } from 'styled-components'
 
-import { getBreakpoint, tabletBreakpoint } from '../../utils'
-
+import { getBreakpoint, ProjectType, tabletBreakpoint } from '../../utils'
 import Modal from '../Modal'
 
 import { Button, Line, Link } from '../../styles'
-import { Container, Grid, Image } from './styles'
+import { Container, Grid, Image, SpanType } from './styles'
+import { Certificate, Project } from '../../types'
 
 type Props = {
   type: 'project' | 'certificate'
@@ -73,6 +73,12 @@ const Card = ({ type, content }: Props) => {
 
   if (type === 'project') {
     const project = content as Project
+
+    const messageType = (type: ProjectType) => {
+      if (type === ProjectType.BOTH) return 'FRONT-END & BACK-END'
+      if (type === ProjectType.FRONTEND) return 'FRONT-END'
+      if (type === ProjectType.BACKEND) return 'BACK-END'
+    }
     return (
       <>
         <Container type="project">
@@ -81,7 +87,10 @@ const Card = ({ type, content }: Props) => {
               <Image src={project.image} alt={project.title} />
             </div>
             <div className="content">
-              <h3 className="title--small pi-8">{project.title}</h3>
+              <h3 className="title--small pi-8">
+                {project.title}
+                <SpanType>{messageType(project.type)}</SpanType>
+              </h3>
               <Line />
               <p ref={resumeRef} className="resume text--small pi-8">
                 {getBreakpoint(window.innerWidth) === 'tablet' ||

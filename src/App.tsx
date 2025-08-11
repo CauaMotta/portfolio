@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
-import MainContent from './components/MainContent'
 import Sidebar from './components/Sidebar'
-
-import { getBreakpoint } from './utils'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
 
 import { Container, GlobalStyle } from './styles'
 import { darkTheme, lightTheme } from './themes'
@@ -14,40 +14,32 @@ function App() {
     const theme = localStorage.getItem('theme')
     return theme ? JSON.parse(theme) : 'dark'
   })
-  const [breakpoint, setBreakpoint] = useState(() =>
-    getBreakpoint(window.innerWidth)
-  )
-  const [mainKey, setMainKey] = useState(0)
 
-  useEffect(() => {
-    localStorage.setItem('theme', JSON.stringify(theme))
-
-    const handleResize = () => {
-      const newBreakpoint = getBreakpoint(window.innerWidth)
-
-      if (newBreakpoint !== breakpoint) {
-        setBreakpoint(newBreakpoint)
-        setMainKey(mainKey + 1)
-      }
+  const routes = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/projects',
+      element: <Projects />
     }
-
-    window.addEventListener('resize', handleResize)
-
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }, [theme, breakpoint, mainKey])
+  ])
 
   const setThemeHandler = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
+
+  useEffect(() => {
+    localStorage.setItem('theme', JSON.stringify(theme))
+  }, [theme])
 
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <Container>
         <GlobalStyle />
         <Sidebar changeTheme={setThemeHandler} />
-        <MainContent key={mainKey} />
+        <RouterProvider router={routes} />
       </Container>
     </ThemeProvider>
   )

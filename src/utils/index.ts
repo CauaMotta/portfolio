@@ -22,3 +22,15 @@ export const getBreakpoint = (width: number) => {
     return 'desktop-sm'
   return 'desktop'
 }
+
+export const filterValidate = (filter: string, type: ProjectType) => {
+  if (filter === '') return true
+  if (type === filter || type === ProjectType.BOTH) return true
+  return false
+}
+
+export enum ProjectType {
+  BACKEND = 'B',
+  FRONTEND = 'F',
+  BOTH = 'A'
+}

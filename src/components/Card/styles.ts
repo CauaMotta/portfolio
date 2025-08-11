@@ -41,6 +41,12 @@ export const Container = styled.div<Props>`
     .content {
       flex: 1;
 
+      .title--small {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
       .resume {
         height: 66px;
       }
@@ -76,6 +82,12 @@ export const Container = styled.div<Props>`
   @media (max-width: ${variables.breakpoints.desktop_sm}) {
     .content-container {
       .content {
+        .title--small {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+        }
+
         .resume {
           height: auto;
         }
@@ -86,6 +98,15 @@ export const Container = styled.div<Props>`
   @media (max-width: ${variables.breakpoints.tablet}) {
     .content-container {
       gap: 8px;
+
+      .content {
+        .title--small {
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
+          flex-wrap: wrap;
+        }
+      }
 
       .btn-container {
         .certificate-link {
@@ -113,6 +134,12 @@ export const Container = styled.div<Props>`
         width: 100%;
 
         text-align: center;
+
+        .title--small {
+          flex-direction: column;
+          justify-content: center;
+          gap: 0;
+        }
 
         .resume {
           height: auto;
@@ -168,9 +195,14 @@ export const Grid = styled.div`
         grid-template-columns: 1fr;
 
         &:has(li:nth-child(6)) {
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: repeat(5, 24px);
           grid-auto-flow: column;
+          grid-template-rows: repeat(5, 24px);
+          grid-template-columns: 1fr 1fr;
+        }
+
+        &:has(li:nth-child(11)) {
+          grid-template-columns: 1fr 1fr;
+          grid-auto-flow: row;
         }
 
         li {
@@ -246,4 +278,28 @@ export const Image = styled.img`
   height: 100%;
   object-fit: cover;
   object-position: top;
+`
+
+export const SpanType = styled.span`
+  display: inline-block;
+  padding: 0 8px;
+
+  color: ${({ theme }) => theme.colors.backgroundColor};
+  font-size: 16px;
+  font-weight: bold;
+
+  background-color: ${({ theme }) => theme.colors.primaryColor};
+  border: 3px solid ${({ theme }) => theme.colors.primaryColor};
+
+  border-radius: 4px;
+
+  @media (max-width: ${variables.breakpoints.tablet}) {
+    padding: 0 4px;
+
+    font-size: 12px;
+  }
+
+  @media (max-width: ${variables.breakpoints.mobile}) {
+    order: -1;
+  }
 `

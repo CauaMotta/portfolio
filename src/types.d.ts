@@ -1,3 +1,5 @@
+import { ProjectType } from './utils'
+
 declare type Project = {
   image: string
   title: string
@@ -5,6 +7,8 @@ declare type Project = {
   linkRepo: string
   published: boolean
   linkDeploy?: string
+  detach?: boolean
+  type: ProjectType
   technologies: string[]
 }
 

@@ -3,6 +3,9 @@ import userEvent from '@testing-library/user-event'
 
 import Card from '.'
 
+import { Certificate, Project } from '../../types'
+import { ProjectType } from '../../utils'
+
 vi.mock('../Modal', () => ({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: ({ isOpen, title }: any) =>
@@ -15,6 +18,8 @@ const projectMock: Project = {
   image: 'test.png',
   linkRepo: 'https://github.com/test',
   published: false,
+  detach: true,
+  type: ProjectType.FRONTEND,
   technologies: ['React', 'Typescript']
 }
 
