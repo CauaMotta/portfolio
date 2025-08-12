@@ -55,4 +55,4 @@ npm run dev
 - Limitar a página inicial com 3 certificados ✅
 - Expor todos os certificados em uma página dedicada ✅
 - Atualizar os certificados ✅
-- Ajustes finais
+- Ajustes finais ✅
