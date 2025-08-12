@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-
 import variables from '../../styles/variables'
 
 export const Container = styled.div`
@@ -12,12 +11,8 @@ export const Container = styled.div`
     margin-block: 16px;
   }
 
-  .btnGroup {
-    margin-top: 16px;
-    margin-bottom: 32px;
-
-    display: flex;
-    gap: 8px;
+  .certificates-box {
+    margin-top: 32px;
   }
 
   @media (max-width: ${variables.breakpoints.tablet}) {
@@ -25,11 +20,6 @@ export const Container = styled.div`
 
     .title {
       margin-block: 12px;
-    }
-
-    .btnGroup {
-      margin-top: 14px;
-      margin-bottom: 24px;
     }
   }
 `

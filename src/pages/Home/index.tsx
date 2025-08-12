@@ -145,6 +145,12 @@ const Home = () => {
                 type="certificate"
               />
             ))}
+            {!certificatesLoading && !certificatesError && (
+              <NavButton onClick={() => navigate('/certificates')}>
+                Ver todos os certificados{' '}
+                <i className="fa-solid fa-arrow-right"></i>
+              </NavButton>
+            )}
           </>
         </Section>
         <Contact />

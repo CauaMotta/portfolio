@@ -53,6 +53,6 @@ npm run dev
 ## 🧩 Novas funcionalidades da branch `feature/my-certificates`
 
 - Limitar a página inicial com 3 certificados ✅
-- Expor todos os certificados em uma página dedicada
+- Expor todos os certificados em uma página dedicada ✅
 - Atualizar os certificados
 - Ajustes finais

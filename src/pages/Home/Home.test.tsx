@@ -112,15 +112,31 @@ describe('Home', () => {
       render(<Home />)
     })
 
-    const btnHome = screen.getByRole('button', {
+    const btnProjects = screen.getByRole('button', {
       name: /Ver todos os projetos/i
     })
 
-    expect(btnHome).toBeInTheDocument()
+    expect(btnProjects).toBeInTheDocument()
 
-    await userEvent.click(btnHome)
+    await userEvent.click(btnProjects)
 
     expect(mockNavigate).toHaveBeenCalledWith('/projects')
+  })
+
+  test('Should redirect to the certificates page', async () => {
+    await act(async () => {
+      render(<Home />)
+    })
+
+    const btnCertificates = screen.getByRole('button', {
+      name: /Ver todos os certificados/i
+    })
+
+    expect(btnCertificates).toBeInTheDocument()
+
+    await userEvent.click(btnCertificates)
+
+    expect(mockNavigate).toHaveBeenCalledWith('/certificates')
   })
 })
 

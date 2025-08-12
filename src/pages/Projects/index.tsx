@@ -9,8 +9,8 @@ import { useFetchData } from '../../hooks'
 import { filterValidate, ProjectType } from '../../utils'
 import { Project } from '../../types'
 
-import { Container, NavButton } from './styles'
-import { FilterBtn, Line, StyledClipLoader } from '../../styles'
+import { Container } from './styles'
+import { FilterBtn, Line, StyledClipLoader, NavButton } from '../../styles'
 
 const Projects = () => {
   const { data, loading, error } = useFetchData<Project>('projects')
