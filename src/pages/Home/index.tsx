@@ -138,7 +138,7 @@ const Home = () => {
                 </p>
               </div>
             )}
-            {certificates.map((certificate) => (
+            {certificates.slice(0, 3).map((certificate) => (
               <Card
                 key={certificate.title}
                 content={certificate}
