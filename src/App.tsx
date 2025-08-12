@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
+import Certificates from './pages/Certificates'
 
 import { Container, GlobalStyle } from './styles'
 import { darkTheme, lightTheme } from './themes'
@@ -23,6 +24,10 @@ function App() {
     {
       path: '/projects',
       element: <Projects />
+    },
+    {
+      path: '/certificates',
+      element: <Certificates />
     }
   ])
 

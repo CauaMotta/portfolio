@@ -21,7 +21,7 @@ const AboutMe = () => (
         aplicações <b>Front-end</b> e <b>Back-end</b>, adoro explorar novas
         tecnologias para melhorar meus projetos. Algumas das principais
         tecnologias que possuo experiência são:{' '}
-        <b>JavaScript, TypeScript, React, VueJS, Node.JS e Java</b>
+        <b>TypeScript, React, Java, Spring, PostgreSQL, MongoDB</b>
       </p>
       <p className="text m-top">
         <span>&#x1F680;</span> Estou sempre aberto a novos desafios e

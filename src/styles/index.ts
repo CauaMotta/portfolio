@@ -255,3 +255,29 @@ export const StyledClipLoader = styled(ClipLoader)`
   border-width: 4px !important;
   animation: ${spin} 1s 0s linear infinite !important;
 `
+
+export const NavButton = styled.button`
+  margin-top: 40px;
+  padding: 16px 0;
+
+  color: ${({ theme }) => theme.colors.fontColorSecondary};
+  font-weight: bold;
+  font-size: 16px;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primaryColor};
+  }
+
+  @media (max-width: ${variables.breakpoints.tablet}) {
+    margin: 0;
+
+    padding: 14px 0;
+
+    font-size: 14px;
+  }
+`

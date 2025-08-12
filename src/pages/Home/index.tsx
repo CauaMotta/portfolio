@@ -122,7 +122,7 @@ const Home = () => {
         <Section
           id="certificates"
           title="Certificados"
-          description="Esta seção tem o objetivo de mostrar todos os meus certificados"
+          description="Esta seção tem o objetivo de mostrar os meus principais certificados"
         >
           <>
             {certificatesLoading && (
@@ -138,13 +138,19 @@ const Home = () => {
                 </p>
               </div>
             )}
-            {certificates.map((certificate) => (
+            {certificates.slice(0, 3).map((certificate) => (
               <Card
                 key={certificate.title}
                 content={certificate}
                 type="certificate"
               />
             ))}
+            {!certificatesLoading && !certificatesError && (
+              <NavButton onClick={() => navigate('/certificates')}>
+                Ver todos os certificados{' '}
+                <i className="fa-solid fa-arrow-right"></i>
+              </NavButton>
+            )}
           </>
         </Section>
         <Contact />
