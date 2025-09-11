@@ -7,6 +7,10 @@ describe('Footer', () => {
     render(<Footer />)
   })
 
+  test('Should render the logo', () => {
+    expect(screen.getByTestId('logo')).toBeInTheDocument()
+  })
+
   test('Should render the footer', () => {
     expect(screen.getByText('Cauã Motta')).toBeInTheDocument()
   })

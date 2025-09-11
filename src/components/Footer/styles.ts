@@ -10,6 +10,11 @@ export const Container = styled.footer`
   background-color: ${({ theme }) => theme.colors.primaryColor};
   border-radius: 16px;
 
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+
   .title--small,
   .text--small {
     color: ${({ theme }) => theme.colors.secondaryColor};
