@@ -23,6 +23,10 @@ export const Container = styled.div<Props>`
     gap: 16px;
 
     .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       border-radius: 8px;
       border: ${(props) =>
         props.type === 'project'

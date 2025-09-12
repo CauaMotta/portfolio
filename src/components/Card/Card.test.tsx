@@ -62,11 +62,7 @@ describe('Card - Certificate', () => {
   })
 
   test('Should render the certificate card', () => {
-    expect(screen.getByAltText('Test title')).toHaveAttribute(
-      'src',
-      '/assets/test-light.svg'
-    )
-
+    expect(screen.getByTestId('school')).toBeInTheDocument()
     expect(screen.getByText('Test title')).toBeInTheDocument()
     expect(screen.getByText('01/01/2000')).toBeInTheDocument()
   })

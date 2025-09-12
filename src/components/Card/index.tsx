@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from 'react'
-import { useTheme } from 'styled-components'
 
 import { getBreakpoint, ProjectType, tabletBreakpoint } from '../../utils'
 import Modal from '../Modal'
@@ -7,6 +6,7 @@ import Modal from '../Modal'
 import { Button, Line, Link } from '../../styles'
 import { Container, Grid, Image, SpanType } from './styles'
 import { Certificate, Project } from '../../types'
+import School from '../School'
 
 type Props = {
   type: 'project' | 'certificate'
@@ -15,7 +15,6 @@ type Props = {
 
 const Card = ({ type, content }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const theme = useTheme()
   const resumeRef = useRef<HTMLParagraphElement | null>(null)
   const [truncatedText, setTruncatedText] = useState('')
 
@@ -164,12 +163,7 @@ const Card = ({ type, content }: Props) => {
     <Container type="certificate">
       <div className="content-container">
         <div className="image-container">
-          <Image
-            src={`/assets/${certificate.school}-${
-              theme.name === 'dark' ? 'light' : 'dark'
-            }.svg`}
-            alt={certificate.title}
-          />
+          <School name={certificate.school} width={54} height={54} />
         </div>
         <div className="content">
           <h3 className="title--small pi-8">{certificate.title}</h3>
