@@ -1,5 +1,41 @@
 [
   {
+    "image": "/assets/petlar.png",
+    "title": "PetLar",
+    "resume": "Projeto full-stack monolítico para adoção de animais. Backend em Java com API RESTful, frontend reativo com React e dados no MongoDB. Um projeto robusto e escalável, com todo o ecossistema containerizado via Docker.",
+    "linkRepo": "https://github.com/CauaMotta/petlar",
+    "published": false,
+    "detach": true,
+    "type": "A",
+    "technologies": [
+      "🖥️ Back-End",
+      "",
+      "☕ Java",
+      "🌱 Spring Boot",
+      "🌐 Spring Web",
+      "✅ Spring Validation",
+      "🍃 MongoDB",
+      "🧪 JUnit",
+      "📦 Flapdoodle",
+      "",
+      "✨ Front-End",
+      "",
+      "⚡ Vite",
+      "⚛️ React",
+      "💅 Styled Components",
+      "⭐ Font Awesome",
+      "🧭 React Router Dom",
+      "🗂️ Redux",
+      "✅ Yup",
+      "📝 Formik",
+      "🔄 React Spinners",
+      "🔽 React Select",
+      "🔢 React IMask",
+      "🧪 Vitest",
+      "🧩 Testing Library"
+    ]
+  },
+  {
     "image": "/assets/sales-system.png",
     "title": "Sales System",
     "resume": "Projeto desenvolvido no curso da EBAC: sistema de vendas monolito em Java, com JSF e PrimeFaces. Integra cadastro de clientes, produtos e vendas, usando Maven, Hibernate e PostgreSQL na persistência.",
@@ -35,8 +71,9 @@
       "✅ Yup",
       "📝 Formik",
       "🔄 React Spinners",
-      "🧪 Vitest & Testing Library",
-      "🧭 React Router Dom"
+      "🧭 React Router Dom",
+      "🧪 Vitest",
+      "🧩 Testing Library"
     ]
   },
   {

@@ -19,7 +19,7 @@ export function useFetchData<T>(resource: string) {
 
     Promise.all([
       fetchData<T>(resource),
-      new Promise((resolve) => setTimeout(resolve, 1000))
+      new Promise((resolve) => setTimeout(resolve, 200))
     ])
       .then(([res]) => {
         if (isMounted) setData(res as T[])
