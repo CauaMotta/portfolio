@@ -36,12 +36,27 @@
     ]
   },
   {
+    "image": "/assets/gerador-cardapio-pdf.png",
+    "title": "Gerador de Cardápios em PDF",
+    "resume": "Script que transforma JSON em cardápios PDF. Criado para automatizar e facilitar a rotina, uma solução real para um negócio de família. Com Puppeteer e EJS, gera versões com e sem preços para uso digital ou para impressão.",
+    "linkRepo": "https://github.com/CauaMotta/gerador_cardapio_pdf",
+    "published": false,
+    "detach": true,
+    "type": "B",
+    "technologies": [
+      "🟢 Node.js",
+      "📄 Puppeteer",
+      "📑 EJS",
+      "🖌️ HTML/CSS",
+      "⚙️ Scripts .bat"
+    ]
+  },
+  {
     "image": "/assets/sales-system.png",
     "title": "Sales System",
     "resume": "Projeto desenvolvido no curso da EBAC: sistema de vendas monolito em Java, com JSF e PrimeFaces. Integra cadastro de clientes, produtos e vendas, usando Maven, Hibernate e PostgreSQL na persistência.",
-    "linkRepo": "https://github.com/CauaMotta/sales-system",
+    "linkRepo": "https://github.com/CauaMotta/sales_system",
     "published": false,
-    "detach": true,
     "type": "A",
     "technologies": [
       "☕ Java",
@@ -103,8 +118,8 @@
     "resume": "Projeto EBAC: Agenda de contatos em React com design autoral. Temas light/dark (Styled Components), gerenciamento de estado via Redux e navegação com React Router Dom.",
     "linkRepo": "https://github.com/CauaMotta/contact_list_v2",
     "published": true,
-    "linkDeploy": "https://cauamotta-contact-list.vercel.app/",
     "detach": true,
+    "linkDeploy": "https://cauamotta-contact-list.vercel.app/",
     "type": "F",
     "technologies": [
       "⚡ Vite",
@@ -123,7 +138,6 @@
     "linkRepo": "https://github.com/CauaMotta/iphone_calculator",
     "published": true,
     "linkDeploy": "https://cauamotta-iphone-calculator.vercel.app/",
-    "detach": true,
     "type": "F",
     "technologies": ["⚡ Vite", "🧡 JavaScript", "💚 VueJS"]
   },
@@ -212,7 +226,6 @@
     "linkRepo": "https://github.com/CauaMotta/task_list",
     "published": true,
     "linkDeploy": "https://cauamotta-task-list.vercel.app/",
-    "detach": true,
     "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },
@@ -223,7 +236,6 @@
     "linkRepo": "https://github.com/CauaMotta/contact_list_v1",
     "published": true,
     "linkDeploy": "https://cauamotta-contact-list-v1.vercel.app/",
-    "detach": true,
     "type": "F",
     "technologies": ["🌐 HTML", "🎨 CSS", "💻 JQuery", "⭐ Font Awesome"]
   },

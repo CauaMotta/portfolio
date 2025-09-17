@@ -102,11 +102,14 @@ const Home = () => {
                 </p>
               </div>
             )}
-            {projects
-              .filter(
-                (project) =>
-                  project.detach && filterValidate(filter, project.type)
+            {[
+              ...projects.filter(
+                (p) => p.detach && filterValidate(filter, p.type)
+              ),
+              ...projects.filter(
+                (p) => !p.detach && filterValidate(filter, p.type)
               )
+            ]
               .slice(0, 3)
               .map((project) => (
                 <Card key={project.title} content={project} type="project" />
