@@ -149,7 +149,11 @@ const Modal = ({ isOpen, onClose, title, children }: Props) => {
             <span></span>
           </div>
         )}
-        <div ref={contentRef} className="pi-8">
+        <div
+          style={{ overflowY: position != 'full' ? 'hidden' : 'auto' }}
+          ref={contentRef}
+          className="pi-8"
+        >
           {children}
         </div>
       </ModalCard>

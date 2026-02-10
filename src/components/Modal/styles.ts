@@ -4,7 +4,7 @@ import variables from '../../styles/variables'
 
 export const ModalContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
 
   z-index: 1;
 
@@ -66,6 +66,11 @@ export const ModalCard = styled.div`
   }
 
   @media (max-width: ${variables.breakpoints.tablet}) {
+    max-height: 90dvh;
+
+    display: flex;
+    flex-direction: column;
+
     padding: 16px 16px 0 16px;
 
     border-radius: 16px 16px 0 0;
@@ -79,6 +84,7 @@ export const ModalCard = styled.div`
     }
 
     .drag-icon {
+      flex-shrink: 0;
       width: 100%;
 
       display: flex;
